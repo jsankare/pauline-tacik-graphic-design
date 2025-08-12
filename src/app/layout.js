@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/app/components/Navigation";
+import Footer from "@/app/components/Footer";
+
+// TODO: Change font to desired font
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,18 +16,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "NextJS Boilerplate with Transitions",
-  description: "A NextJS boilerplate with smooth page transitions using GSAP.",
+  title: "Graphisme Design Pauline Tacik",
+  description: "Portfolio de Pauline Tacik, graphiste et designer, gravures, illustrations et créations graphiques.",
+  // TODO: Add Open Graph metadata
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
-      <main className="w-2/3 mx-auto p-1" >
-          <Navigation />
-          {children}
-      </main>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div className="min-h-screen flex">
+          <aside className="w-64 shrink-0 border-r border-neutral-200 p-5">
+            <Navigation />
+          </aside>
+          <main className="flex-1">
+            {children}
+          </main>
+        </div>
+        <Footer />
       </body>
     </html>
   );

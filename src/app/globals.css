@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+/* Tailwind v4 custom theme tokens */
+@theme {
+  --color-primary: #1f22eb;
+  --color-secondary: #3aac55;
+}
+
+/* Hide global chrome (Navigation aside and Footer) on 404 when .hide-chrome is present */
+.hide-chrome aside,
+.hide-chrome footer {
+  display: none !important;
+}
