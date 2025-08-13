@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TransitionLink from "@/app/components/TransitionLink";
 
 const Footer = () => {
     return (
@@ -11,9 +12,9 @@ const Footer = () => {
                     Fait avec <span className="text-red-500">♥</span> par <Link className="text-blue-950" target={"blank"} href={"https://www.jsankare.dev"}>Jordan Sankaré</Link>
                 </p>
                 <div className="text-center text-sm">
-                    <a href="/privacy-policy" className="text-blue-950 hover:underline">Politique de confidentialité</a>
+                    <TransitionLink href="/privacy-policy" label="Politique de confidentialité" />
                     <span className="mx-2">|</span>
-                    <a href="/terms-of-service" className="text-blue-950 hover:underline">Mentions légales</a>
+                    <TransitionLink href="/legals" label="Mentions légales" />
                 </div>
             </section>
         </footer>

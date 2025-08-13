@@ -1,0 +1,79 @@
+{
+  "projects": [
+    {
+      "title": "Projet 1",
+      "description": "Description du projet 1",
+      "shortDescription": "Courte description du projet 1",
+      "longDescription": "Longue description du projet 1 qui donne plus de détails sur les objectifs, les résultats attendus et les étapes clés.",
+      "thumbnail": "https://picsum.photos/300/300?image=42",
+      "images": [
+        "https://picsum.photos/300/300?image=10",
+        "https://picsum.photos/300/300?image=20",
+        "https://picsum.photos/300/300?image=30"
+      ],
+      "date": "2023-01-01",
+      "type": "Type de projet",
+      "link": "http://localhost:3000/project/projet1"
+    },
+    {
+      "title": "Projet 2",
+      "description": "Description du projet 2",
+      "shortDescription": "Courte description du projet 2",
+      "longDescription": "Longue description du projet 2 qui donne plus de détails sur les objectifs, les résultats attendus et les étapes clés.",
+      "thumbnail": "https://picsum.photos/300/300?image=40",
+      "images": [
+        "https://picsum.photos/300/300?image=50",
+        "https://picsum.photos/300/300?image=60",
+        "https://picsum.photos/300/300?image=70"
+      ],
+      "date": "2023-02-01",
+      "type": "Type de projet",
+      "link": "http://localhost:3000/project/projet2"
+    },
+    {
+      "title": "Projet 3",
+      "description": "Description du projet 3",
+      "shortDescription": "Courte description du projet 3",
+      "longDescription": "Longue description du projet 3 qui donne plus de détails sur les objectifs, les résultats attendus et les étapes clés.",
+      "thumbnail": "https://picsum.photos/300/300?image=80",
+      "images": [
+        "https://picsum.photos/300/300?image=90",
+        "https://picsum.photos/300/300?image=100",
+        "https://picsum.photos/300/300?image=110"
+      ],
+      "date": "2023-03-01",
+      "type": "Type de projet",
+      "link": "http://localhost:3000/project/projet3"
+    },
+    {
+      "title": "Projet 4",
+      "description": "Description du projet 4",
+      "shortDescription": "Courte description du projet 4",
+      "longDescription": "Longue description du projet 4 qui donne plus de détails sur les objectifs, les résultats attendus et les étapes clés.",
+      "thumbnail": "https://picsum.photos/300/300?image=120",
+      "images": [
+        "https://picsum.photos/300/300?image=130",
+        "https://picsum.photos/300/300?image=140",
+        "https://picsum.photos/300/300?image=150"
+      ],
+      "date": "2023-04-01",
+      "type": "Type de projet",
+      "link": "http://localhost:3000/project/projet4"
+    },
+    {
+      "title": "Projet 5",
+      "description": "Description du projet 5",
+      "shortDescription": "Courte description du projet 5",
+      "longDescription": "Longue description du projet 5 qui donne plus de détails sur les objectifs, les résultats attendus et les étapes clés.",
+      "thumbnail": "https://picsum.photos/300/300?image=160",
+      "images": [
+        "https://picsum.photos/300/300?image=170",
+        "https://picsum.photos/300/300?image=180",
+        "https://picsum.photos/300/300?image=190"
+      ],
+      "date": "2023-05-01",
+      "type": "Type de projet",
+      "link": "http://localhost:3000/project/projet5"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { animatePageOut } from "@/utils/animations";
 
-const TransitionLink = ({ href, label }) => {
+const TransitionLink = ({ href, label, onClick }) => {
     const router = useRouter()
     const pathname = usePathname();
 
@@ -11,6 +11,7 @@ const TransitionLink = ({ href, label }) => {
         if(pathname !== href) {
             animatePageOut(href, router)
         }
+        if (onClick) onClick();
     }
 
     return (
