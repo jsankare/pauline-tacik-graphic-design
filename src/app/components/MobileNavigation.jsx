@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Navigation from "./Navigation";
-import TransitionLink from "@/app/components/TransitionLink";
+import TransitionLink from "../components/TransitionLink";
 import Image from "next/image";
 import Logo from "../../../public/ptacik-logo.png";
 
@@ -15,7 +15,7 @@ export default function MobileNavigation({ onLinkClick }) {
       <header className="md:hidden flex justify-between items-center p-4 border-b border-neutral-200">
         <button
           onClick={() => setMenuOpen(true)}
-          className="flex flex-col gap-1"
+          className="flex flex-col gap-1 hover:cursor-pointer"
           aria-label="Ouvrir le menu"
         >
           <span className="w-6 h-0.5 bg-black"></span>
@@ -49,9 +49,12 @@ export default function MobileNavigation({ onLinkClick }) {
         <div className="relative bg-white w-64 h-full p-5 shadow-lg">
           <button
             onClick={() => setMenuOpen(false)}
-            className="mb-4 text-sm"
+            className="mb-4 text-sm hover:cursor-pointer"
           >
-            X
+              <p>toto</p>
+              <span className="w-6 h-0.5 bg-black"></span>
+              <span className="w-6 h-0.5 bg-black"></span>
+              <span className="w-6 h-0.5 bg-black"></span>
           </button>
           <Navigation onLinkClick={() => setMenuOpen(false)} />
         </div>

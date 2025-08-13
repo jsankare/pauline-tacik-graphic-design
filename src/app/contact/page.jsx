@@ -1,8 +1,8 @@
 "use client";
 
-import {Button, H1} from "@/app/components/ui/ui";
-import Input from "@/app/components/layout/form/input";
-import TextArea from "@/app/components/layout/form/textArea";
+import { Button, H1 } from "../components/ui/ui";
+import Input from "../components/layout/form/input";
+import TextArea from "../components/layout/form/textArea";
 import { useState } from "react";
 
 const ContactPage = () => {

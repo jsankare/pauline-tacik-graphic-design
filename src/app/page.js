@@ -1,13 +1,13 @@
-import TransitionLink from "@/app/components/TransitionLink";
+import TransitionLink from "./components/TransitionLink";
 import Projects from "./projets.json"
 import Image from "next/image";
+import { H1 } from "./components/ui/ui";
 
 const Homepage = () => {
 
   return (
       <section className="p-4">
-          <h1 className="text-7xl font-extrabold text-center mt-10">Homepage</h1>
-
+          <H1 title="Bienvenue !" />
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
               {Projects.projects.map((project, id) => (
                   <TransitionLink

@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
-import TransitionLink from "@/app/components/TransitionLink";
+import TransitionLink from "./components/TransitionLink";
 
 export default function NotFound() {
   useEffect(() => {

@@ -1,6 +1,6 @@
 "use client";
 
-import TransitionLink from "@/app/components/TransitionLink";
+import TransitionLink from "../components/TransitionLink";
 import Image from "next/image";
 import Logo from "../../../public/ptacik-logo.png";
 
@@ -9,8 +9,9 @@ const Navigation = ({ onLinkClick }) => {
         <nav className="flex flex-col gap-6">
             <TransitionLink
                 href="/"
-                label={<Image src={Logo} alt="ceci est un logo" width={50} height={50} />}
+                label={<Image src={Logo} alt="ceci est un logo" width={150} height={150} />}
                 onClick={onLinkClick}
+                centered={true}
             />
             <div className="flex flex-col gap-3 items-start">
                 <TransitionLink href="/" label="Projets" onClick={onLinkClick} />

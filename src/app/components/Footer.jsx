@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TransitionLink from "@/app/components/TransitionLink";
+import TransitionLink from "./TransitionLink";
 
 const Footer = () => {
     return (
