@@ -1,25 +1,35 @@
 import TransitionLink from "../components/TransitionLink";
-import Workshops from "../workshops.json";
 import Image from "next/image";
 import { H1 } from "../components/ui/ui";
+import clientPromise from "@/lib/mongodb";
 
-const WorkshopsPage = () =>{
+const WorkshopsPage = async () => {
+    // Fetch workshops from MongoDB
+    let workshops = [];
+    try {
+        const client = await clientPromise;
+        const db = client.db();
+        workshops = await db.collection('workshops').find({}).toArray();
+    } catch (error) {
+        console.error('Error fetching workshops:', error);
+    }
+
     return (
         <section className="p-4">
             <H1 title="Ateliers" />
 
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
-                {Workshops.workshops.map((workshop, id) => (
+                {workshops.map((workshop, id) => (
                     <TransitionLink
-                        key={id}
-                        href={workshop.link}
+                        key={workshop._id || id}
+                        href={`/workshop/${workshop._id}`}
                         label={
                             <div className="relative group overflow-hidden rounded-lg shadow-lg">
                                 <Image
                                     width={500}
                                     height={300}
                                     alt={workshop.name}
-                                    src={workshop.thumbnail}
+                                    src={workshop.thumbnail || '/placeholder.svg'}
                                     className="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
                                 />
                                 {/* Image Overlay */}

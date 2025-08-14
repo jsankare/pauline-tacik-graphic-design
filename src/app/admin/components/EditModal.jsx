@@ -97,7 +97,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
         if (type === 'image') {
             return (
                 <ImageUpload
-                    label=""
+                    label="Miniature / Thumbnail (1)"
                     value={value}
                     onChange={(url) => handleInputChange(field, url)}
                     multiple={false}
@@ -110,7 +110,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
         if (type === 'imageArray') {
             return (
                 <ImageUpload
-                    label=""
+                    label="Images"
                     value={value}
                     onChange={(urls) => handleInputChange(field, urls)}
                     multiple={true}
