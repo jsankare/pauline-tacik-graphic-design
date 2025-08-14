@@ -1,22 +1,11 @@
 import { NextResponse } from 'next/server';
-import { readdir, stat } from 'fs/promises';
-import { join } from 'path';
+import { listImages } from '@/lib/cloudinary';
 import clientPromise from '@/lib/mongodb';
 
 export async function GET() {
     try {
-        const uploadsDir = join(process.cwd(), 'public', 'uploads');
-        
-        // Get all files in uploads directory
-        let files;
-        try {
-            files = await readdir(uploadsDir);
-        } catch (error) {
-            return NextResponse.json({ message: 'Dossier uploads non trouvé' }, { status: 404 });
-        }
-
-        // Filter out .gitkeep and get file stats
-        const imageFiles = files.filter(file => file !== '.gitkeep');
+        // Get all images from Cloudinary
+        const cloudinaryImages = await listImages();
         
         // Get database connection to check usage
         const client = await clientPromise;
@@ -43,26 +32,19 @@ export async function GET() {
             }
         });
 
-        // Build image list with metadata
-        const images = [];
-        for (const file of imageFiles) {
-            try {
-                const filePath = join(uploadsDir, file);
-                const fileStats = await stat(filePath);
-                const fileUrl = `/uploads/${file}`;
-                
-                images.push({
-                    filename: file,
-                    url: fileUrl,
-                    size: fileStats.size,
-                    createdAt: fileStats.birthtime,
-                    isUsed: usedImages.has(fileUrl),
-                    usageCount: 0
-                });
-            } catch (error) {
-                console.error(`Error processing file ${file}:`, error);
-            }
-        }
+        // Build image list with metadata and usage tracking
+        const images = cloudinaryImages.map(image => ({
+            filename: image.filename,
+            url: image.url,
+            size: image.size,
+            createdAt: new Date(image.createdAt),
+            isUsed: usedImages.has(image.url),
+            usageCount: 0,
+            public_id: image.public_id,
+            width: image.width,
+            height: image.height,
+            format: image.format
+        }));
 
         // Count usage for each image
         for (const image of images) {

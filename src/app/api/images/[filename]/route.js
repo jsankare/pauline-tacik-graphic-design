@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { unlink } from 'fs/promises';
-import { join } from 'path';
+import { deleteImage, getPublicIdFromUrl } from '@/lib/cloudinary';
 import clientPromise from '@/lib/mongodb';
 
 export async function DELETE(request, { params }) {
@@ -14,44 +13,45 @@ export async function DELETE(request, { params }) {
         const client = await clientPromise;
         const db = client.db();
         
-        const imageUrl = `/uploads/${filename}`;
+        // First, we need to find the image in our database to get its Cloudinary URL
+        // We'll search for images that contain this filename in their URL
+        const projects = await db.collection('projects').find({
+            $or: [
+                { thumbnail: { $regex: filename, $options: 'i' } },
+                { images: { $regex: filename, $options: 'i' } }
+            ]
+        }).toArray();
+        
+        const workshops = await db.collection('workshops').find({
+            $or: [
+                { thumbnail: { $regex: filename, $options: 'i' } },
+                { images: { $regex: filename, $options: 'i' } }
+            ]
+        }).toArray();
         
         // Check if image is currently used
-        const isUsedInProjects = await db.collection('projects').countDocuments({
-            $or: [
-                { thumbnail: imageUrl },
-                { images: imageUrl }
-            ]
-        });
-        
-        const isUsedInWorkshops = await db.collection('workshops').countDocuments({
-            $or: [
-                { thumbnail: imageUrl },
-                { images: imageUrl }
-            ]
-        });
-        
-        if (isUsedInProjects > 0 || isUsedInWorkshops > 0) {
+        if (projects.length > 0 || workshops.length > 0) {
             return NextResponse.json({ 
                 message: 'Cette image est actuellement utilisée et ne peut pas être supprimée',
                 isUsed: true,
-                usageCount: isUsedInProjects + isUsedInWorkshops
+                usageCount: projects.length + workshops.length
             }, { status: 400 });
         }
         
-        // Delete the file
-        const filePath = join(process.cwd(), 'public', 'uploads', filename);
+        // For Cloudinary, we need to construct the public_id from the filename
+        // Remove the extension and add the folder prefix
+        const publicId = `pauline-tacik/${filename.replace(/\.[^/.]+$/, '')}`;
         
         try {
-            await unlink(filePath);
-            console.log(`Deleted unused image: ${filename}`);
+            await deleteImage(publicId);
+            console.log(`Deleted unused image from Cloudinary: ${filename}`);
             
             return NextResponse.json({ 
                 message: 'Image supprimée avec succès',
                 filename
             });
         } catch (error) {
-            if (error.code === 'ENOENT') {
+            if (error.message.includes('not found')) {
                 return NextResponse.json({ 
                     message: 'Fichier non trouvé' 
                 }, { status: 404 });

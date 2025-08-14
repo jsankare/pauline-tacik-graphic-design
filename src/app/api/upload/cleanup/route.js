@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { unlink, readdir } from 'fs/promises';
-import { join } from 'path';
+import { listImages, deleteImage, getPublicIdFromUrl } from '@/lib/cloudinary';
 import clientPromise from '@/lib/mongodb';
 
 export async function POST(request) {
@@ -35,29 +34,23 @@ export async function POST(request) {
             }
         });
         
-        // Get all files in uploads directory
-        const uploadsDir = join(process.cwd(), 'public', 'uploads');
-        const files = await readdir(uploadsDir);
+        // Get all images from Cloudinary
+        const cloudinaryImages = await listImages();
         
         let deletedCount = 0;
         const errors = [];
         
-        // Check each file in uploads directory
-        for (const file of files) {
-            if (file === '.gitkeep') continue; // Skip the gitkeep file
-            
-            const filePath = join(uploadsDir, file);
-            const fileUrl = `/uploads/${file}`;
-            
-            // If file is not used anywhere, delete it
-            if (!usedImages.has(fileUrl)) {
+        // Check each image from Cloudinary
+        for (const image of cloudinaryImages) {
+            // If image is not used anywhere, delete it
+            if (!usedImages.has(image.url)) {
                 try {
-                    await unlink(filePath);
+                    await deleteImage(image.public_id);
                     deletedCount++;
-                    console.log(`Deleted unused image: ${file}`);
+                    console.log(`Deleted unused image from Cloudinary: ${image.filename}`);
                 } catch (error) {
-                    console.error(`Error deleting ${file}:`, error);
-                    errors.push(`Failed to delete ${file}: ${error.message}`);
+                    console.error(`Error deleting ${image.filename}:`, error);
+                    errors.push(`Failed to delete ${image.filename}: ${error.message}`);
                 }
             }
         }
