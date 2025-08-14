@@ -1,10 +1,14 @@
 "use client";
 
-import {useState} from "react";
+import { useState } from "react";
+import { EyeClosedIcon, EyeIcon } from "../../icons";
 
 const BasicInput = ({ type, placeholder, value, onChange, disabled, label, name, required = true }) => {
 
     const [showPassword, setShowPassword] = useState(false);
+
+    const eyeClosed = <EyeClosedIcon className="w-7.5 h-7.5 text-primary" />;
+    const eyeOpen = <EyeIcon className="w-10 h-10 text-primary"  />;
 
     const handlePasswordReveal = () => {
         setShowPassword(prev => !prev);
@@ -34,7 +38,7 @@ const BasicInput = ({ type, placeholder, value, onChange, disabled, label, name,
                         onClick={handlePasswordReveal}
                         className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer select-none"
                     >
-                        {showPassword ? "opened" : "closed"}
+                        {showPassword ? eyeOpen : eyeClosed}
                     </div>
                 )}
             </div>

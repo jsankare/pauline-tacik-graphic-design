@@ -18,6 +18,8 @@ const Navigation = ({ onLinkClick }) => {
                 <TransitionLink href="/workshops" label="Ateliers" onClick={onLinkClick} />
                 <TransitionLink href="/about" label="À propos" onClick={onLinkClick} />
                 <TransitionLink href="/contact" label="Contact" onClick={onLinkClick} />
+                <TransitionLink href="/admin" label="Admin (temp)" onClick={onLinkClick} />
+                <TransitionLink href="/login" label="Login (temp)" onClick={onLinkClick} />
             </div>
         </nav>
     );

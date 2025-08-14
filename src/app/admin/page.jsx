@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import {useEffect} from "react";
 
@@ -16,12 +16,10 @@ const AdminPage = () =>  {
         }
     }, [status, router]);
 
-    const handleLogout = () => {
-        signOut({ callbackUrl: '/login' });
-    };
-
     return(
-        <p>this the admin page</p>
+        <section>
+            <p>this the admin page</p>
+        </section>
     )
 }
 

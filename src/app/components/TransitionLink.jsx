@@ -16,7 +16,7 @@ const TransitionLink = ({ href, label, onClick, centered = false }) => {
 
     return (
         <button
-            className={`text-xl text-neutral-900 hover:text-neutral-700 hover:cursor-pointer ${centered ? "flex justify-center items-center" : ""}`}
+            className={`min-w-fit text-xl text-neutral-900 hover:text-neutral-700 hover:cursor-pointer ${centered ? "flex justify-center items-center" : ""}`}
             onClick={handleClick}
         >
             {label}

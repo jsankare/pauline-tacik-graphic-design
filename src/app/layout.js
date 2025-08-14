@@ -1,8 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "./components/Navigation";
-import MobileNavigation from "./components/MobileNavigation";
-import Footer from "./components/Footer";
+import RootShell from "./components/RootShell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,28 +13,17 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Graphisme Design Pauline Tacik",
-  description:
-      "Portfolio de Pauline Tacik, graphiste et designer, gravures, illustrations et créations graphiques.",
+  description: "Portfolio de Pauline Tacik, graphiste et designer, gravures, illustrations et créations graphiques.",
 };
 
 export default function RootLayout({ children }) {
   return (
       <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      {/* Mobile Navigation */}
-      <MobileNavigation />
-
-      <div className="min-h-screen flex">
-        {/* Desktop navigation */}
-        <aside className="hidden md:block w-64 shrink-0 border-r border-neutral-200 p-5">
-          <Navigation />
-        </aside>
-
-        {/* Main content */}
-        <main className="flex-1">{children}</main>
-      </div>
-      <Footer />
-      </body>
+          <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+              <RootShell>
+                {children}
+              </RootShell>
+          </body>
       </html>
   );
 }
