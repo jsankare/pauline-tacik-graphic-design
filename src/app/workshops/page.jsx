@@ -21,8 +21,8 @@ const WorkshopsPage = async () => {
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
                 {workshops.map((workshop, id) => (
                     <TransitionLink
-                        key={workshop._id || id}
-                        href={`/workshop/${workshop._id}`}
+                        key={workshop._id?.toString() || id}
+                        href={`/workshop/${workshop._id?.toString()}`}
                         label={
                             <div className="relative group overflow-hidden rounded-lg shadow-lg">
                                 <Image

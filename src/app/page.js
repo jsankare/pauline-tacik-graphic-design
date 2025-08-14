@@ -2,6 +2,7 @@ import TransitionLink from "./components/TransitionLink";
 import Image from "next/image";
 import { H1 } from "./components/ui/ui";
 import clientPromise from "@/lib/mongodb";
+import DebugInfo from "../../src/components/DebugInfo.jsx";
 
 const Homepage = async () => {
   // Fetch projects from MongoDB
@@ -17,11 +18,15 @@ const Homepage = async () => {
   return (
       <section className="p-4">
           <H1 title="Bienvenue !" />
+          
+          {/* Debug Info - Only shows in development */}
+          <DebugInfo data={projects} title="Projects Data" />
+          
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
               {projects.map((project, id) => (
                   <TransitionLink
-                      key={project._id || id}
-                      href={`/project/${project._id}`}
+                      key={project._id?.toString() || id}
+                      href={`/project/${project._id?.toString()}`}
                       label={
                           <div className="relative group overflow-hidden rounded-lg shadow-lg">
                               <Image
