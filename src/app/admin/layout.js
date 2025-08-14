@@ -23,10 +23,6 @@ const AdminLayout = ({ children }) => {
         <SessionProvider>
             <header className="w-full border-b border-neutral-200 p-4 flex items-center justify-between">
                 <div className="text-lg font-semibold">Admin</div>
-                <div className="flex gap-4" >
-                    <Button text="Projets" onClick={handleShowProjects} admin={true} />
-                    <Button text="Ateliers" onClick={handleShowWorkshops} admin={true} />
-                </div>
                 <div className="flex items-center gap-3">
                     <TransitionLink href="/" label="Visit site" />
                     <Button

@@ -22,9 +22,9 @@ const Homepage = () => {
                                   src={project.thumbnail}
                                   className="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
                               />
-                              {/* Overlay */}
-                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                  <span className="text-white text-lg font-semibold">{project.title}</span>
+                              {/* Image Overlay */}
+                              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <span className="text-white text-lg font-semibold text-center px-4">{project.title}</span>
                               </div>
                           </div>
                       }

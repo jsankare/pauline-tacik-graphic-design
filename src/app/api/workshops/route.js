@@ -7,9 +7,8 @@ export async function GET() {
         const db = client.db();
         const workshops = await db.collection('workshops').find({}).toArray();
         if (!workshops || workshops.length === 0) {
-            return NextResponse.json({ message: 'Aucun projet trouvé' }, { status: 404 });
+            return NextResponse.json({ message: 'Aucun workshop trouvé' }, { status: 404 });
         }
-        // workshops.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         return NextResponse.json(workshops);
     } catch (error) {
         return NextResponse.json({ message: 'Erreur lors de la récupération des workshops' }, { status: 500 });
@@ -18,14 +17,24 @@ export async function GET() {
 
 export async function POST(request) {
     try {
-        const { name, color } = await request.json();
-        if (!name) return NextResponse.json({ message: 'Le nom est requis' }, { status: 400 });
+        const workshopData = await request.json();
+        if (!workshopData.name) {
+            return NextResponse.json({ message: 'Le nom est requis' }, { status: 400 });
+        }
+        
         const client = await clientPromise;
         const db = client.db();
-        const result = await db.collection('categories').insertOne({ name, color: color || null, createdAt: new Date() });
-        const inserted = await db.collection('categories').findOne({ _id: result.insertedId });
+        
+        const newWorkshop = {
+            ...workshopData,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        };
+        
+        const result = await db.collection('workshops').insertOne(newWorkshop);
+        const inserted = await db.collection('workshops').findOne({ _id: result.insertedId });
         return NextResponse.json(inserted);
     } catch (error) {
-        return NextResponse.json({ message: 'Erreur lors de la création de la catégorie' }, { status: 500 });
+        return NextResponse.json({ message: 'Erreur lors de la création du workshop' }, { status: 500 });
     }
 }
