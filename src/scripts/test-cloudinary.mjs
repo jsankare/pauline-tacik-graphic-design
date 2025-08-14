@@ -7,13 +7,7 @@ config();
 const testCloudinary = async () => {
     try {
         console.log('Testing Cloudinary connection...');
-        
-        // Debug: Check if environment variables are loaded
-        console.log('Environment variables:');
-        console.log('CLOUD_NAME:', process.env.CLOUD_NAME ? '✓ Set' : '✗ Not set');
-        console.log('API_KEY:', process.env.API_KEY ? '✓ Set' : '✗ Not set');
-        console.log('API_SECRET:', process.env.API_SECRET ? '✓ Set' : '✗ Not set');
-        
+
         if (!process.env.CLOUD_NAME || !process.env.API_KEY || !process.env.API_SECRET) {
             throw new Error('Missing required Cloudinary environment variables');
         }
@@ -24,7 +18,6 @@ const testCloudinary = async () => {
         // Test listing images
         const images = await listImages();
         console.log(`✓ Successfully connected to Cloudinary`);
-        console.log(`✓ Found ${images.length} images in your Cloudinary account`);
         
         if (images.length > 0) {
             console.log('\nSample images:');
@@ -37,10 +30,6 @@ const testCloudinary = async () => {
         
     } catch (error) {
         console.error('❌ Cloudinary test failed:', error.message);
-        console.log('\nPlease check:');
-        console.log('1. Your environment variables (CLOUD_NAME, API_KEY, API_SECRET)');
-        console.log('2. Your Cloudinary account credentials');
-        console.log('3. Your internet connection');
     }
 };
 

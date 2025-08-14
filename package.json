@@ -2,14 +2,13 @@
   "name": "pauline-tacik",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate-images": "node src/scripts/migrate-images.js",
-    "test-cloudinary": "node src/scripts/test-cloudinary.js"
+    "migrate-images": "node src/scripts/migrate-images.mjs",
+    "test-cloudinary": "node src/scripts/test-cloudinary.mjs"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

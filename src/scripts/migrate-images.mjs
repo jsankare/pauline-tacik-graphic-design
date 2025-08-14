@@ -134,9 +134,6 @@ const migrateImages = async () => {
         }
         
         console.log(`\nMigration completed!`);
-        console.log(`- Images migrated: ${Object.keys(urlMapping).length}`);
-        console.log(`- Projects updated: ${projectsUpdated}`);
-        console.log(`- Workshops updated: ${workshopsUpdated}`);
         
         // Save the mapping for reference
         const fs = await import('fs/promises');
