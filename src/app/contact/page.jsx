@@ -3,7 +3,13 @@
 import { Button, H1 } from "../components/ui/ui";
 import Input from "../components/layout/form/input";
 import TextArea from "../components/layout/form/textArea";
-import { useState } from "react";
+import {useEffect, useState} from "react";
+import emailjs from '@emailjs/browser';
+
+const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_PUBLIC_KEY;
 
 const ContactPage = () => {
 
@@ -16,6 +22,10 @@ const ContactPage = () => {
 
     const [loading, setLoading] = useState(false);
 
+    useEffect(() => {
+        emailjs.init(publicKey);
+    }, []);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({ ...prevData, [name]: value }));
@@ -23,19 +33,31 @@ const ContactPage = () => {
 
     const isDisabled = !formData.firstName || !formData.lastName || !formData.email || !formData.message;
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
 
+        alert("Fonctionnalité en cours de développement, merci de revenir plus tard !");
+        setLoading(false);
+        return;
+
         try {
-            // Simulate form submission
-            console.log("Form submitted with data:", formData);
+            await emailjs.send(serviceID, templateID, {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                email: formData.email,
+                message: formData.message,
+            });
+
+            alert("Message envoyé avec succès !");
+            setFormData({ firstName: "", lastName: "", email: "", message: "" });
         } catch (error) {
-            console.error("Error submitting form:", error);
+            console.error("Erreur lors de l'envoi :", error);
+            alert("Une erreur est survenue, veuillez réessayer.");
         } finally {
             setLoading(false);
         }
-    }
+    };
 
     return (
         <section>

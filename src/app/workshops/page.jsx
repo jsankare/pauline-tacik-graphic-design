@@ -2,6 +2,7 @@ import TransitionLink from "../components/TransitionLink";
 import Image from "next/image";
 import { H1 } from "../components/ui/ui";
 import clientPromise from "@/lib/mongodb";
+import DebugInfo from "@/components/DebugInfo";
 
 const WorkshopsPage = async () => {
     // Fetch workshops from MongoDB
@@ -17,6 +18,7 @@ const WorkshopsPage = async () => {
     return (
         <section className="p-4">
             <H1 title="Ateliers" />
+            <DebugInfo data={workshops} title="Workshops Data" />
 
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
                 {workshops.map((workshop, id) => (

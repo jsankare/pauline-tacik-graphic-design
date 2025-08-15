@@ -11,6 +11,7 @@
     "test-cloudinary": "node src/scripts/test-cloudinary.mjs"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.7.0",
     "dotenv": "^17.2.1",
