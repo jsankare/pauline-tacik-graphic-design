@@ -60,16 +60,78 @@ const ContactPage = () => {
     };
 
     return (
-        <section>
-            <H1 title="Me contacter" />
-            <form onSubmit={handleSubmit}>
-                <Input label="Nom" name="lastName" type="text" onChange={handleChange} required={true} />
-                <Input label="Prénom" name="firstName" type="text" onChange={handleChange} required={true} />
-                <Input label="Email" name="email" type="email" onChange={handleChange} required={true} />
-                <TextArea name="message" label="Message" placeholder="Message" onChange={handleChange} required={true} />
-                <Button text={loading ? "Envoi en cours..." : "Envoyer"} disabled={isDisabled || loading} />
-            </form>
-        </section>
+        <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+                {/* Header Section */}
+                <div className="text-center mb-12">
+                    <H1 title="Me contacter" />
+                    <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                        Vous avez un projet en tête ? Une question ? N'hésitez pas à me contacter, 
+                        je serai ravie d'échanger avec vous !
+                    </p>
+                </div>
+
+                {/* Contact Form */}
+                <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-1 gap-12">
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                                    Parlons de votre projet
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Que ce soit pour une identité visuelle, une campagne publicitaire, 
+                                    ou tout autre projet créatif, je suis là pour vous accompagner 
+                                    dans la réalisation de vos objectifs.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="bg-gray-50 rounded-xl p-6">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <Input 
+                                        label="Prénom" 
+                                        name="firstName" 
+                                        type="text" 
+                                        onChange={handleChange} 
+                                        required={true} 
+                                    />
+                                    <Input 
+                                        label="Nom" 
+                                        name="lastName" 
+                                        type="text" 
+                                        onChange={handleChange} 
+                                        required={true} 
+                                    />
+                                </div>
+                                
+                                <Input 
+                                    label="Email" 
+                                    name="email" 
+                                    type="email" 
+                                    onChange={handleChange} 
+                                    required={true} 
+                                />
+                                
+                                <TextArea 
+                                    name="message" 
+                                    label="Message" 
+                                    placeholder="Décrivez votre projet, vos besoins, vos questions..." 
+                                    onChange={handleChange} 
+                                    required={true} 
+                                />
+                                
+                                <Button 
+                                    text={loading ? "Envoi en cours..." : "Envoyer le message"} 
+                                    disabled={isDisabled || loading} 
+                                />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 

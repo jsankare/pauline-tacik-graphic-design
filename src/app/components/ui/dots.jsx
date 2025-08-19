@@ -1,9 +1,16 @@
 'use client';
 
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import dotPng from '../../../../public/pois.png';
 
 export default function Dots({ rows = 5, dotSize = 26, gap = 8 }) {
+    const pathname = usePathname();
+
+    if (pathname?.startsWith('/admin')) {
+        return null;
+    }
+
     const totalWidth = rows * dotSize + (rows - 1) * gap;
     const totalHeight = rows * dotSize + (rows - 1) * gap;
 
