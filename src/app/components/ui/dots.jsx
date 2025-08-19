@@ -24,7 +24,7 @@ export default function Dots({ rows = 5, dotSize = 26, gap = 8 }) {
                 width: totalWidth,
                 height: totalHeight,
                 pointerEvents: 'none',
-                zIndex: 0,
+                zIndex: 10,
                 overflow: 'visible', // no cropping
             }}
         >
