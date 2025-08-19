@@ -18,7 +18,7 @@ const WorkshopsPage = async () => {
     return (
         <section className="p-4">
             <H1 title="Ateliers" />
-            <DebugInfo data={workshops} title="Workshops Data" />
+            {/*<DebugInfo data={workshops} title="Workshops Data" />*/}
 
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
                 {workshops.map((workshop, id) => (

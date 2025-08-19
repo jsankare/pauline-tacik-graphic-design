@@ -20,7 +20,7 @@ const Homepage = async () => {
           <H1 title="Bienvenue !" />
           
           {/* Debug Info - Only shows in development */}
-          <DebugInfo data={projects} title="Projects Data" />
+          {/*<DebugInfo data={projects} title="Projects Data" />*/}
           
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
               {projects.map((project, id) => (
