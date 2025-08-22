@@ -22,18 +22,20 @@ export default function MobileNavigation({ onLinkClick }) {
           <span className="w-6 h-0.5 bg-black"></span>
           <span className="w-6 h-0.5 bg-black"></span>
         </button>
-        <TransitionLink
-          href="/"
-          label={
-            <Image
-              src={Logo}
-              alt="ceci est un logo"
-              width={150}
-              height={150}
-            />
-          }
-          onClick={onLinkClick}
-        />
+        <div className="flex justify-center items-center">
+          <TransitionLink
+            href="/"
+            label={
+              <Image
+                src={Logo}
+                alt="ceci est un logo"
+                width={150}
+                height={150}
+              />
+            }
+            onClick={onLinkClick}
+          />
+        </div>
       </header>
 
       {/* Menu mobile overlay */}
