@@ -48,11 +48,6 @@ const WorkshopCard = ({ workshop, href }) => {
                 {workshop.shortDescription}
               </span>
             )}
-            {workshop.type && (
-              <span className="text-white/70 text-xs text-center block mt-1 drop-shadow-lg">
-                {workshop.type}
-              </span>
-            )}
           </div>
         </div>
       </div>

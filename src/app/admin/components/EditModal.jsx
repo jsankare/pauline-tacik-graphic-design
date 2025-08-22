@@ -68,7 +68,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'orientation', label: 'Orientation', type: 'toggle', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },
-                    { field: 'type', label: 'Type', type: 'text', required: true },
+                    { field: 'type', label: 'Type', type: 'text', required: false },
                     { field: 'link', label: 'Lien', type: 'url', required: false }
                 ];
             case 'workshop':
@@ -85,6 +85,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'price', label: 'Prix (€)', type: 'number', required: true },
                     { field: 'location', label: 'Lieu', type: 'text', required: true },
                     { field: 'capacity', label: 'Capacité', type: 'number', required: true },
+                    { field: 'type', label: 'Type', type: 'text', required: false },
                     { field: 'requirements', label: 'Prérequis', type: 'textarea', required: false }
                 ];
             case 'user':
@@ -233,7 +234,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
     };
 
     return (
-        <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4">
+        <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-40 p-2 sm:p-4">
             <div className="bg-white rounded-sm p-4 sm:p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200">
                 <div className="flex justify-between items-center mb-4 sm:mb-6">
                     <h2 className="text-lg sm:text-xl font-semibold text-gray-900">

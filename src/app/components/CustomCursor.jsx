@@ -15,7 +15,7 @@ export const CustomCursor = () => {
 
     return (
         <div
-            className="fixed pointer-events-none z-50 h-4 w-4 bg-secondary rounded-3xl transition-transform duration-75"
+            className="fixed pointer-events-none h-4 w-4 bg-secondary rounded-3xl transition-transform duration-75 z-50"
             style={{
                 left: pos.x,
                 top: pos.y,

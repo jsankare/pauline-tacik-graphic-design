@@ -1,8 +1,6 @@
-import TransitionLink from "../components/TransitionLink";
 import { H1 } from "../components/ui/ui";
 import clientPromise from "@/lib/mongodb";
-// import DebugInfo from "@/components/DebugInfo";
-import WorkshopCard from "../components/WorkshopCard";
+import FilteredWorkshops from "../components/FilteredWorkshops";
 
 const WorkshopsPage = async () => {
     // Fetch workshops from MongoDB
@@ -26,21 +24,11 @@ const WorkshopsPage = async () => {
     return (
         <section className="p-4">
             <H1 title="Ateliers" />
-            {/*<DebugInfo data={workshops} title="Workshops Data" />*/}
-
-            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 p-10">
-                {workshops.map((workshop, id) => {
-                    return (
-                        <TransitionLink
-                            key={workshop._id?.toString() || id}
-                            href={`/workshop/${workshop._id?.toString()}`}
-                            label={<WorkshopCard workshop={workshop} />}
-                        />
-                    );
-                })}
-            </section>
+            
+            <FilteredWorkshops workshops={workshops} />
         </section>
     )
 }
 
 export default WorkshopsPage;
+

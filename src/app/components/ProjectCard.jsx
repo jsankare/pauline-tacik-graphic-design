@@ -48,11 +48,6 @@ const ProjectCard = ({ project, href }) => {
                 {project.shortDescription}
               </span>
             )}
-            {project.type && (
-              <span className="text-white/70 text-xs text-center block mt-1 drop-shadow-lg">
-                {project.type}
-              </span>
-            )}
           </div>
         </div>
       </div>

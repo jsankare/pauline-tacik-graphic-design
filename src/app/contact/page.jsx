@@ -64,7 +64,7 @@ const ContactPage = () => {
             <div className="max-w-4xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-12 w-full flex flex-col items-start text-primary">
-                    <H1 title="Me contacter" />
+                    <H1 title="Me contacter" color="text-primary" />
                     <p className="mt-4 text-lg max-w-2xl">
                         Vous avez un projet en tête ? Une question ? N'hésitez pas à me contacter, 
                         je serai ravie d'échanger avec vous !
