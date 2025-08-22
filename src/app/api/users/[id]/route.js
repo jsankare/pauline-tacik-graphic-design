@@ -26,11 +26,9 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
     try {
         const { id } = params;
-        console.log('Updating user with ID:', id);
         
         const updateData = await request.json();
-        console.log('Update data:', updateData);
-        
+
         if (!updateData.username || !updateData.role) {
             return NextResponse.json({ message: 'Le nom d\'utilisateur et le rôle sont requis' }, { status: 400 });
         }
@@ -65,15 +63,10 @@ export async function PUT(request, { params }) {
             updatedUser.password = await bcrypt.hash(updatedUser.password, 10);
         }
         
-        console.log('Clean update data:', updatedUser);
-        console.log('Attempting to update user...');
-        
         const result = await db.collection('users').updateOne(
             { _id: new ObjectId(id) },
             { $set: updatedUser }
         );
-        
-        console.log('Update result:', result);
         
         if (result.matchedCount === 0) {
             return NextResponse.json({ message: 'Utilisateur non trouvé' }, { status: 404 });

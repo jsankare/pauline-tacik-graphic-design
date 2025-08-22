@@ -60,7 +60,7 @@ const AdminDashboard = () => {
                 setData([]);
             }
         } catch (error) {
-            console.error('Erreur:', error);
+            console.log('Erreur:', error);
             setData([]);
         } finally {
             setLoading(false);

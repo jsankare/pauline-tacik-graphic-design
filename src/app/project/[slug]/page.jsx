@@ -73,16 +73,7 @@ const SingleProjectPage = async ({ params }) => {
                             <div>
                                 <h3 className="font-semibold text-gray-900">Date</h3>
                                 <p className="text-gray-700">
-                                    {new Date(project.date).toLocaleDateString('fr-FR')}
-                                </p>
-                            </div>
-                        )}
-                        
-                        {project.createdAt && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Créé le</h3>
-                                <p className="text-gray-700">
-                                    {new Date(project.createdAt).toLocaleDateString('fr-FR')}
+                                    {project.date ? new Date(project.date).getFullYear() : '—'}
                                 </p>
                             </div>
                         )}

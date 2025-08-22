@@ -2,24 +2,52 @@
 
 import TransitionLink from "../components/TransitionLink";
 import Image from "next/image";
-import Logo from "../../../public/ptacik-logo.png";
+import Logo from "../../../public/logo-inline.png";
+import { usePathname } from "next/navigation";
 
-const Navigation = ({ onLinkClick }) => {
+const ActiveDot = ({ isActive, isMobile, menuOpen }) => {
+    const baseClasses = "absolute h-4 w-4 bg-secondary rounded-3xl transition-all duration-300 left-17 top-4";
+    const mobileClasses = isMobile && menuOpen ? "absolute top-[-70px]" : "";
+    
+    return (
+        <div className={`${baseClasses} ${mobileClasses} ${isActive ? 'opacity-100' : 'opacity-0'}`}></div>
+    )
+}
+
+const Navigation = ({ onLinkClick, isMobile = false, menuOpen = false }) => {
+    const pathname = usePathname();
+    
+    const navItems = [
+        { href: "/", label: "Projets" },
+        { href: "/workshops", label: "Ateliers" },
+        { href: "/about", label: "À propos" },
+        { href: "/contact", label: "Contact" }
+    ];
+
     return (
         <nav className="flex flex-col gap-6">
             <TransitionLink
                 href="/"
-                label={<Image src={Logo} alt="ceci est un logo" width={150} height={150} />}
+                label={<Image src={Logo} alt="ceci est un logo" width={250} height={250} />}
                 onClick={onLinkClick}
                 centered={true}
             />
-            <div className="flex flex-col gap-3 items-start">
-                <TransitionLink href="/" label="Projets" onClick={onLinkClick} />
-                <TransitionLink href="/workshops" label="Ateliers" onClick={onLinkClick} />
-                <TransitionLink href="/about" label="À propos" onClick={onLinkClick} />
-                <TransitionLink href="/contact" label="Contact" onClick={onLinkClick} />
-                <TransitionLink href="/admin" label="Admin (temp)" onClick={onLinkClick} />
-                <TransitionLink href="/login" label="Login (temp)" onClick={onLinkClick} />
+            <div className="flex flex-col gap-3 items-center text-primary relative">
+                {navItems.map((item, index) => (
+                    <div key={item.href} className="relative">
+                        <TransitionLink 
+                            href={item.href} 
+                            label={item.label} 
+                            onClick={onLinkClick} 
+                            primaryColor={true} 
+                        />
+                        <ActiveDot 
+                            isActive={pathname === item.href} 
+                            isMobile={isMobile}
+                            menuOpen={menuOpen}
+                        />
+                    </div>
+                ))}
             </div>
         </nav>
     );

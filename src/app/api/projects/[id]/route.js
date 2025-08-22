@@ -23,11 +23,8 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
     try {
         const { id } = params;
-        console.log('Updating project with ID:', id);
-        
         const updateData = await request.json();
-        console.log('Update data:', updateData);
-        
+
         if (!updateData.title) {
             return NextResponse.json({ message: 'Le titre est requis' }, { status: 400 });
         }
@@ -48,15 +45,10 @@ export async function PUT(request, { params }) {
             updatedAt: new Date()
         };
         
-        console.log('Clean update data:', updatedProject);
-        console.log('Attempting to update project...');
-        
         const result = await db.collection('projects').updateOne(
             { _id: new ObjectId(id) },
             { $set: updatedProject }
         );
-        
-        console.log('Update result:', result);
         
         if (result.matchedCount === 0) {
             return NextResponse.json({ message: 'Projet non trouvé' }, { status: 404 });

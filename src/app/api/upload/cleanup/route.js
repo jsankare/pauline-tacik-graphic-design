@@ -47,7 +47,6 @@ export async function POST(request) {
                 try {
                     await deleteImage(image.public_id);
                     deletedCount++;
-                    console.log(`Deleted unused image from Cloudinary: ${image.filename}`);
                 } catch (error) {
                     console.error(`Error deleting ${image.filename}:`, error);
                     errors.push(`Failed to delete ${image.filename}: ${error.message}`);

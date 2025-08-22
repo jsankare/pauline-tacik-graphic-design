@@ -16,9 +16,9 @@ export async function POST(request) {
         }
 
         // Validate file size (max 5MB)
-        const maxSize = 5 * 1024 * 1024; // 5MB
+        const maxSize = 10 * 1024 * 1024; // 10MB
         if (file.size > maxSize) {
-            return NextResponse.json({ message: 'Le fichier est trop volumineux (max 5MB)' }, { status: 400 });
+            return NextResponse.json({ message: 'Le fichier est trop volumineux (max 10MB)' }, { status: 400 });
         }
 
         // Convert file to buffer

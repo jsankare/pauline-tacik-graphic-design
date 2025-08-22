@@ -23,10 +23,7 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
     try {
         const { id } = params;
-        console.log('Updating workshop with ID:', id);
-        
         const updateData = await request.json();
-        console.log('Update data:', updateData);
         
         if (!updateData.name) {
             return NextResponse.json({ message: 'Le nom est requis' }, { status: 400 });
@@ -48,15 +45,10 @@ export async function PUT(request, { params }) {
             updatedAt: new Date()
         };
         
-        console.log('Clean update data:', updatedWorkshop);
-        console.log('Attempting to update workshop...');
-        
         const result = await db.collection('workshops').updateOne(
             { _id: new ObjectId(id) },
             { $set: updatedWorkshop }
         );
-        
-        console.log('Update result:', result);
         
         if (result.matchedCount === 0) {
             return NextResponse.json({ message: 'Workshop non trouvé' }, { status: 404 });

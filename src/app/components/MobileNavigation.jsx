@@ -28,8 +28,8 @@ export default function MobileNavigation({ onLinkClick }) {
             <Image
               src={Logo}
               alt="ceci est un logo"
-              width={50}
-              height={50}
+              width={150}
+              height={150}
             />
           }
           onClick={onLinkClick}
@@ -51,12 +51,15 @@ export default function MobileNavigation({ onLinkClick }) {
             onClick={() => setMenuOpen(false)}
             className="mb-4 text-sm hover:cursor-pointer"
           >
-              <p>toto</p>
               <span className="w-6 h-0.5 bg-black"></span>
               <span className="w-6 h-0.5 bg-black"></span>
               <span className="w-6 h-0.5 bg-black"></span>
           </button>
-          <Navigation onLinkClick={() => setMenuOpen(false)} />
+          <Navigation 
+            onLinkClick={() => setMenuOpen(false)} 
+            isMobile={true}
+            menuOpen={menuOpen}
+          />
         </div>
       </div>
     </>

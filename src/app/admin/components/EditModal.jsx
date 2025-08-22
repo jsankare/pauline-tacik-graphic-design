@@ -34,7 +34,6 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
         }
         
         // Convert numeric fields
-        if (processedData.duration) processedData.duration = parseInt(processedData.duration);
         if (processedData.price) processedData.price = parseFloat(processedData.price);
         if (processedData.capacity) processedData.capacity = parseInt(processedData.capacity);
         
@@ -70,10 +69,8 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },
-                    { field: 'type', label: 'Type', type: 'text', required: true },
                     { field: 'link', label: 'Lien', type: 'url', required: false },
-                    { field: 'instructor', label: 'Instructeur', type: 'text', required: true },
-                    { field: 'duration', label: 'Durée (minutes)', type: 'number', required: true },
+                    { field: 'duration', label: 'Durée', type: 'text', required: true },
                     { field: 'price', label: 'Prix (€)', type: 'number', required: true },
                     { field: 'location', label: 'Lieu', type: 'text', required: true },
                     { field: 'capacity', label: 'Capacité', type: 'number', required: true },
@@ -185,11 +182,13 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
             );
         }
 
+        const today = new Date().toISOString().split("T")[0];
+
         if (type === 'date') {
             return (
                 <input
                     type="date"
-                    value={value ? new Date(value).toISOString().split('T')[0] : ''}
+                    value={value ? new Date(value).toISOString().split('T')[0] : today}
                     onChange={(e) => handleInputChange(field, e.target.value)}
                     required={required}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"

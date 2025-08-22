@@ -2,12 +2,23 @@
 
 /* Tailwind v4 custom theme tokens */
 @theme {
-  --color-primary: #1f22eb;
-  --color-secondary: #3aac55;
+    --color-primary: #1f22eb;
+    --color-secondary: #3aac55;
+    --font-family-aracau: var(--font-aracau), serif;
+}
+
+/* Font configuration */
+.font-aracau {
+    font-family: var(--font-aracau) !important;
+}
+
+/* Alternative font class */
+.font-aracau-alt {
+    font-family: var(--font-aracau), serif !important;
 }
 
 /* Hide global chrome (Navigation aside and Footer) on 404 when .hide-chrome is present */
 .hide-chrome aside,
 .hide-chrome footer {
-  display: none !important;
+    display: none !important;
 }

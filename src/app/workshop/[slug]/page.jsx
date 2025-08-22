@@ -69,20 +69,6 @@ const SingleWorkshopPage = async ({ params }) => {
                     </div>
                     
                     <div className="space-y-4">
-                        {workshop.instructor && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Instructeur</h3>
-                                <p className="text-gray-700">{workshop.instructor}</p>
-                            </div>
-                        )}
-                        
-                        {workshop.type && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Type</h3>
-                                <p className="text-gray-700">{workshop.type}</p>
-                            </div>
-                        )}
-                        
                         {workshop.date && (
                             <div>
                                 <h3 className="font-semibold text-gray-900">Date</h3>
@@ -95,7 +81,7 @@ const SingleWorkshopPage = async ({ params }) => {
                         {workshop.duration && (
                             <div>
                                 <h3 className="font-semibold text-gray-900">Durée</h3>
-                                <p className="text-gray-700">{workshop.duration} minutes</p>
+                                <p className="text-gray-700">{workshop.duration}</p>
                             </div>
                         )}
                         
@@ -117,15 +103,6 @@ const SingleWorkshopPage = async ({ params }) => {
                             <div>
                                 <h3 className="font-semibold text-gray-900">Lieu</h3>
                                 <p className="text-gray-700">{workshop.location}</p>
-                            </div>
-                        )}
-                        
-                        {workshop.createdAt && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Créé le</h3>
-                                <p className="text-gray-700">
-                                    {new Date(workshop.createdAt).toLocaleDateString('fr-FR')}
-                                </p>
                             </div>
                         )}
                     </div>

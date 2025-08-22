@@ -15,7 +15,7 @@ const AboutPage = () => {
     };
 
     return (
-        <div className="relative min-h-screen bg-white">
+        <div className="relative min-h-screen bg-white font-aracau">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
             <div className="relative overflow-hidden">
                 <div className="relative max-w-6xl mx-auto px-6 py-20">

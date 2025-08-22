@@ -44,8 +44,6 @@ export async function DELETE(request, { params }) {
         
         try {
             await deleteImage(publicId);
-            console.log(`Deleted unused image from Cloudinary: ${filename}`);
-            
             return NextResponse.json({ 
                 message: 'Image supprimée avec succès',
                 filename

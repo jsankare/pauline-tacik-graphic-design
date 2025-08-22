@@ -1,9 +1,9 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { animatePageOut } from "../../utils/animations";
+import { animatePageOut } from "@/utils/animations";
 
-const TransitionLink = ({ href, label, onClick, centered = false }) => {
+const TransitionLink = ({ href, label, onClick, centered = false, primaryColor = false }) => {
     const router = useRouter()
     const pathname = usePathname();
 
@@ -16,7 +16,11 @@ const TransitionLink = ({ href, label, onClick, centered = false }) => {
 
     return (
         <button
-            className={`min-w-fit text-xl text-neutral-900 hover:text-neutral-700 hover:cursor-pointer ${centered ? "flex justify-center items-center" : ""}`}
+            className={`
+                min-w-fit text-xl hover:text-neutral-700 hover:cursor-pointer 
+                ${primaryColor ? "text-primary hover:text-secondary" : "text-neutral-900"} 
+                ${centered ? "flex justify-center items-center" : ""}
+            `}
             onClick={handleClick}
         >
             {label}
