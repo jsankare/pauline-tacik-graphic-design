@@ -77,7 +77,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
                     <div 
                         key={id}
                         className={`bg-white rounded-sm border overflow-hidden hover:shadow-lg transition-shadow ${
-                            image.isUsed ? 'border-green-200 bg-green-50' : 'border-gray-200'
+                            image.isUsed ? 'border-secondary/20 bg-secondary/50' : 'border-gray-200'
                         }`}
                     >
                         {/* Image Preview */}
@@ -90,7 +90,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
                             
                             {/* Usage Badge */}
                             {image.isUsed && (
-                                <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
+                                <div className="absolute top-2 left-2 bg-secondary text-white text-xs px-2 py-1 rounded-full">
                                     Utilisée ({image.usageCount})
                                 </div>
                             )}
@@ -114,7 +114,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
                                     {image.filename}
                                 </span>
                                 {image.isUsed && (
-                                    <InfoIcon className="w-4 h-4 text-green-500" title="Image utilisée" />
+                                    <InfoIcon className="w-4 h-4 text-secondary" title="Image utilisée" />
                                 )}
                             </div>
                             
@@ -129,7 +129,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
                                 </div>
                                 <div className="flex justify-between">
                                     <span>Usage:</span>
-                                    <span className={image.isUsed ? 'text-green-600 font-medium' : 'text-gray-500'}>
+                                    <span className={image.isUsed ? 'text-secondary font-medium' : 'text-gray-500'}>
                                         {image.isUsed ? `${image.usageCount} fois` : 'Non utilisée'}
                                     </span>
                                 </div>
@@ -141,7 +141,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
 
             {/* Delete Confirmation Modal */}
             {showDeleteModal && selectedImage && (
-                <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-40 p-4">
                     <div className="bg-white rounded-sm p-6 max-w-md w-full shadow-2xl border border-gray-200">
                         <div className="flex items-center space-x-3 mb-4">
                             <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">

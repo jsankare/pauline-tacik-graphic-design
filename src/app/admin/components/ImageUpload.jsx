@@ -268,7 +268,7 @@ const ImageUpload = ({
 										<PlusIcon className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
 									</div>
 									{image.isUsed && (
-										<div className="absolute top-1 left-1 bg-green-500 text-white text-xs px-1 py-0.5 rounded">
+										<div className="absolute top-1 left-1 bg-secondary text-white text-xs px-1 py-0.5 rounded">
 											{image.usageCount}
 										</div>
 									)}

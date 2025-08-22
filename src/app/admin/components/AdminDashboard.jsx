@@ -168,18 +168,18 @@ const AdminDashboard = () => {
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-6 space-y-2 sm:space-y-0">
                     <div className="flex items-center space-x-2 sm:space-x-3">
                         <span className="text-xl sm:text-2xl">{getTabIcon(activeTab)}</span>
-                        <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
+                        <h2 className="text-lg sm:text-xl font-semibold text-primary">
                             {tabs.find(t => t.id === activeTab)?.label}
                         </h2>
                         {loading && (
-                            <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-indigo-600"></div>
+                            <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-primary"></div>
                         )}
                     </div>
                     {/* Hide "Ajouter" button for users tab */}
                     {activeTab !== 'users' && (
                         <button
                             onClick={handleCreate}
-                            className="inline-flex items-center px-3 sm:px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full sm:w-auto justify-center"
+                            className="inline-flex items-center px-3 sm:px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-sm text-white bg-primary/80 hover:bg-primary/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary w-full sm:w-auto justify-center"
                         >
                             <PlusIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                             Ajouter
@@ -215,10 +215,10 @@ const AdminDashboard = () => {
     return (
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-8">
             <div className="mb-6 sm:mb-8">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-2">
                     Administration
                 </h1>
-                <p className="text-sm sm:text-base text-gray-600">
+                <p className="text-sm sm:text-base text-primary/70">
                     Gérez vos projets, workshops, utilisateurs et images
                 </p>
             </div>
@@ -232,8 +232,8 @@ const AdminDashboard = () => {
                             onClick={() => setActiveTab(tab.id)}
                             className={`py-2 px-1 border-b-2 font-medium text-xs sm:text-sm flex items-center space-x-1 sm:space-x-2 whitespace-nowrap ${
                                 activeTab === tab.id
-                                    ? 'border-indigo-500 text-indigo-600'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                    ? 'border-indigo-500 text-primary'
+                                    : 'border-transparent text-primary/40 hover:text-primary/70 transition-all  hover:border-primary/80'
                             }`}
                         >
                             <span className="text-base sm:text-lg">{tab.icon}</span>

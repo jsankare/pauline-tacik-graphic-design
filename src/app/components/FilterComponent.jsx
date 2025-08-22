@@ -40,7 +40,7 @@ const FilterComponent = ({ data, onFilterChange, filterKey = 'type' }) => {
 
     return (
         <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+            <h3 className="text-lg font-semibold text-primary mb-4">
                 Filtrer par type
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -51,7 +51,7 @@ const FilterComponent = ({ data, onFilterChange, filterKey = 'type' }) => {
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                             selectedFilters.includes(filter)
                                 ? 'bg-primary border border-gray-300 text-white shadow-md'
-                                : 'bg-white text-gray-700 border border-gray-300 hover:border-primary hover:text-primary'
+                                : 'bg-white text-primary border border-primary hover:border-primary hover:text-primary'
                         }`}
                     >
                         {filter}

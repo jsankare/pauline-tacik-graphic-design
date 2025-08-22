@@ -172,7 +172,7 @@ const DataTable = ({ data, columns, onEdit, onDelete, type }) => {
                                         {onEdit && (
                                             <button
                                                 onClick={() => onEdit(item)}
-                                                className="text-indigo-600 hover:text-indigo-900 p-1 rounded hover:bg-indigo-50"
+                                                className="text-primary p-1 rounded hover:bg-indigo-50"
                                                 title="Modifier"
                                             >
                                                 <EditImageIcon className="w-3 h-3 sm:w-4 sm:h-4" />

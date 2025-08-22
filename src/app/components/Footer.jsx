@@ -9,7 +9,7 @@ const Footer = () => {
                     &copy; 2020 - {new Date().getFullYear()} Pauline Tacik. Tous droits réservés.
                 </p>
                 <p className="text-center text-sm text-neutral-500">
-                    Fait avec <span className="text-red-500">♥</span> par <Link className="text-blue-950" target={"blank"} href={"https://www.jsankare.dev"}>Jordan Sankaré</Link>
+                    Fait avec <span className="text-red-500">♥</span> par <Link className="text-primary" target={"blank"} href={"https://www.jsankare.dev"}>Jordan Sankaré</Link>
                 </p>
                 <div className="text-center text-sm">
                     <TransitionLink href="/privacy-policy" label="Politique de confidentialité" />

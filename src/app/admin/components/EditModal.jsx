@@ -149,7 +149,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     value={value}
                     onChange={(e) => handleInputChange(field, e.target.value)}
                     required={required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                     rows={3}
                 />
             );
@@ -161,7 +161,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     value={value}
                     onChange={(e) => handleInputChange(field, e.target.value)}
                     required={required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                 >
                     <option value="">Sélectionner...</option>
                     {options?.map(option => (
@@ -178,7 +178,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     value={value}
                     onChange={(e) => handleInputChange(field, e.target.value)}
                     required={required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                     placeholder={item?._id ? "Laisser vide pour ne pas changer" : ""}
                 />
             );
@@ -191,7 +191,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     value={value}
                     onChange={(e) => handleInputChange(field, e.target.value)}
                     required={required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                 />
             );
         }
@@ -203,7 +203,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     value={value}
                     onChange={(e) => handleInputChange(field, e.target.value)}
                     required={required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                 />
             );
         }
@@ -217,7 +217,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     value={value ? new Date(value).toISOString().split('T')[0] : today}
                     onChange={(e) => handleInputChange(field, e.target.value)}
                     required={required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                 />
             );
         }
@@ -228,7 +228,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                 value={value}
                 onChange={(e) => handleInputChange(field, e.target.value)}
                 required={required}
-                className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary text-sm"
             />
         );
     };
@@ -271,7 +271,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                         </button>
                         <button
                             type="submit"
-                            className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full sm:w-auto px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-sm hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary"
                         >
                             {item?._id ? 'Modifier' : 'Créer'}
                         </button>
