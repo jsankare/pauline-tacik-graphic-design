@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import RootShell from "./components/RootShell";
+import {CustomCursor} from "@/app/components/CustomCursor";
 
 const Aracau = localFont({
     src: [
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       <html lang="fr">
           <body className={Aracau.variable} style={{fontFamily: 'var(--font-aracau)'}}>
               <RootShell>
+              <CustomCursor />
                 {children}
               </RootShell>
           </body>

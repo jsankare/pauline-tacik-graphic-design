@@ -1,14 +1,75 @@
-export const H1 = ({title}) => {
-    return <h1 className="text-5xl font-bold text-center mt-10" >{title}</h1>
-}
+export const H1 = ({
+                    title,
+                    color = "text-black",
+                    align = "text-center",
+                    italic = false,
+                    bold = true,
+                    size = "text-5xl",
+                }) => {
+    return (
+        <h1
+            className={`
+        mt-10
+        ${color}
+        ${align}
+        ${italic ? "italic" : ""}
+        ${bold ? "font-bold" : "font-normal"}
+        ${size}
+        `}
+        >
+            {title}
+        </h1>
+    );
+};
 
-export const H2 = ({title}) => {
-    return <h1 className="text-3xl font-bold text-center mt-8" >{title}</h1>
-}
+export const H2 = ({
+                    title,
+                    color = "text-black",
+                    align = "text-center",
+                    italic = false,
+                    bold = true,
+                    size = "text-3xl",
+                }) => {
+    return (
+        <h2
+            className={`
+        mt-8
+        ${color}
+        ${align}
+        ${italic ? "italic" : ""}
+        ${bold ? "font-bold" : "font-normal"}
+        ${size}
+        `}
+        >
+            {title}
+        </h2>
+    );
+};
 
-export const H3 = ({title}) => {
-    return <h1 className="text-xl font-bold text-center mt-5" >{title}</h1>
-}
+export const H3 = ({
+                    title,
+                    color = "text-black",
+                    align = "text-left",
+                    italic = false,
+                    bold = true,
+                    size = "text-xl",
+                }) => {
+    return (
+        <h3
+            className={`
+        mt-5
+        ${color}
+        ${align}
+        ${italic ? "italic" : ""}
+        ${bold ? "font-bold" : "font-normal"}
+        ${size}
+        `}
+        >
+            {title}
+        </h3>
+    );
+};
+
 
 export const Button = ({ text, onClick, disabled = false, danger = false, admin = false }) => {
     return (

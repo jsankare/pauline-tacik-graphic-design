@@ -7,6 +7,10 @@
     --font-family-aracau: var(--font-aracau), serif;
 }
 
+* {
+    cursor: none;
+}
+
 /* Font configuration */
 .font-aracau {
     font-family: var(--font-aracau) !important;

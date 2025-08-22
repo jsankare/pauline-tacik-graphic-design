@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { CloseIcon } from '@/app/components/icons';
 import ImageUpload from './ImageUpload';
+import Toggle from '@/app/components/layout/form/toggle';
 
 const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
     const [formData, setFormData] = useState({});
@@ -16,6 +17,14 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
     }, [item]);
 
     const handleInputChange = (field, value) => {
+        setFormData(prev => ({
+            ...prev,
+            [field]: value
+        }));
+    };
+
+    const handleToggleChange = (field, checked) => {
+        const value = checked ? 'Portrait' : 'Landscape';
         setFormData(prev => ({
             ...prev,
             [field]: value
@@ -56,6 +65,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'shortDescription', label: 'Description courte', type: 'textarea', required: true },
                     { field: 'longDescription', label: 'Description longue', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
+                    { field: 'orientation', label: 'Orientation', type: 'toggle', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },
                     { field: 'type', label: 'Type', type: 'text', required: true },
@@ -67,6 +77,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'shortDescription', label: 'Description courte', type: 'textarea', required: true },
                     { field: 'longDescription', label: 'Description longue', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
+                    { field: 'orientation', label: 'Orientation', type: 'toggle', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },
                     { field: 'link', label: 'Lien', type: 'url', required: false },
@@ -90,6 +101,20 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
     const renderField = (fieldConfig) => {
         const { field, label, type, required, options } = fieldConfig;
         const value = formData[field] || '';
+
+        if (type === 'toggle') {
+            const isPortrait = value === 'Portrait';
+            return (
+                <Toggle
+                    name="Orientation"
+                    description=""
+                    checked={isPortrait}
+                    onChange={(checked) => handleToggleChange(field, checked)}
+                    onLabel="Portrait"
+                    offLabel="Paysage"
+                />
+            );
+        }
 
         if (type === 'image') {
             return (
@@ -225,7 +250,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                 <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                     {getFields().map((fieldConfig) => (
                         <div key={fieldConfig.field}>
-                            {fieldConfig.type !== 'image' && fieldConfig.type !== 'imageArray' && (
+                            {fieldConfig.type !== 'image' && fieldConfig.type !== 'imageArray' && fieldConfig.type !== 'toggle' && (
                                 <label className="block text-sm font-medium text-gray-700 mb-1">
                                     {fieldConfig.label}
                                     {fieldConfig.required && <span className="text-red-500">*</span>}
