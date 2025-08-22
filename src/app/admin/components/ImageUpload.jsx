@@ -205,7 +205,7 @@ const ImageUpload = ({
 					type="button"
 					onClick={() => fileInputRef.current?.click()}
 					disabled={isUploading}
-					className="w-full flex items-center justify-center px-3 sm:px-4 py-2 border-2 border-dashed border-gray-300 rounded-md hover:border-indigo-400 hover:bg-indigo-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+					className="w-full flex items-center justify-center px-3 sm:px-4 py-2 border-2 border-dashed border-gray-300 rounded-sm hover:border-indigo-400 hover:bg-indigo-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
 				>
 					<PlusIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-400 flex-shrink-0" />
 					<span className="text-gray-600 truncate">
@@ -217,7 +217,7 @@ const ImageUpload = ({
 				<button
 					type="button"
 					onClick={() => setShowExistingImages(!showExistingImages)}
-					className="w-full flex items-center justify-center px-3 sm:px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm sm:text-base"
+					className="w-full flex items-center justify-center px-3 sm:px-4 py-2 border border-gray-300 rounded-sm hover:bg-gray-50 transition-colors text-sm sm:text-base"
 				>
 					<DonutIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-gray-400" />
 					<span className="text-gray-600">
@@ -240,14 +240,14 @@ const ImageUpload = ({
 
 				{/* Existing Images Modal */}
 				{showExistingImages && (
-					<div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+					<div className="border border-gray-200 rounded-sm p-4 bg-gray-50">
 						<div className="mb-3">
 							<input
 								type="text"
 								placeholder="Rechercher une image..."
 								value={searchTerm}
 								onChange={(e) => setSearchTerm(e.target.value)}
-								className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+								className="w-full px-3 py-2 border border-gray-300 rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
 							/>
 						</div>
 						

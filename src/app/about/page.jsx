@@ -100,7 +100,7 @@ const AboutPage = () => {
                             <div key={index} className="group relative">
                                 <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 h-full transition-all duration-300 group-hover:border-primary group-hover:shadow-xl group-hover:-translate-y-2">
                                     <div className="space-y-4">
-                                        <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-sm flex items-center justify-center">
                                             <span className="text-2xl">
                                                 {['🎨', '📄', '✏️', '👥'][index]}
                                             </span>

@@ -130,7 +130,7 @@ const DataTable = ({ data, columns, onEdit, onDelete, type }) => {
 
     return (
         <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+            <table className="min-w-full bg-white border border-gray-200 rounded-sm">
                 <thead className="bg-gray-50">
                     <tr>
                         {getResponsiveColumns().map((column) => (

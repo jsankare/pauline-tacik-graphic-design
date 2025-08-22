@@ -35,7 +35,7 @@ const SingleProjectPage = async ({ params }) => {
             <div className="mt-8 space-y-6">
                 {/* Thumbnail */}
                 {project.thumbnail && (
-                    <div className="relative w-full h-64 sm:h-96 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-64 sm:h-96 rounded-sm overflow-hidden">
                         <Image
                             src={project.thumbnail || '/placeholder.svg'}
                             alt={project.title}
@@ -86,7 +86,7 @@ const SingleProjectPage = async ({ params }) => {
                         <h2 className="text-xl font-semibold text-gray-900 mb-4">Galerie d'images</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {project.images.map((image, index) => (
-                                <div key={index} className="relative h-48 rounded-lg overflow-hidden">
+                                <div key={index} className="relative h-48 rounded-sm overflow-hidden">
                                     <Image
                                         src={image}
                                         alt={`${project.title} - Image ${index + 1}`}

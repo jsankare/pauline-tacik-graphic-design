@@ -76,7 +76,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
                 {images.map((image, id) => (
                     <div 
                         key={id}
-                        className={`bg-white rounded-lg border overflow-hidden hover:shadow-lg transition-shadow ${
+                        className={`bg-white rounded-sm border overflow-hidden hover:shadow-lg transition-shadow ${
                             image.isUsed ? 'border-green-200 bg-green-50' : 'border-gray-200'
                         }`}
                     >
@@ -142,7 +142,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
             {/* Delete Confirmation Modal */}
             {showDeleteModal && selectedImage && (
                 <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-lg p-6 max-w-md w-full shadow-2xl border border-gray-200">
+                    <div className="bg-white rounded-sm p-6 max-w-md w-full shadow-2xl border border-gray-200">
                         <div className="flex items-center space-x-3 mb-4">
                             <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                                 <CloseIcon className="w-6 h-6 text-red-600" />
@@ -161,7 +161,7 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
                             <p className="text-sm text-gray-700 mb-3">
                                 Êtes-vous sûr de vouloir supprimer cette image ?
                             </p>
-                            <div className="bg-gray-50 rounded-lg p-3">
+                            <div className="bg-gray-50 rounded-sm p-3">
                                 <img
                                     src={selectedImage.url}
                                     alt={selectedImage.filename}
@@ -176,14 +176,14 @@ const ImagesGrid = ({ images, onDelete, onRefresh }) => {
                         <div className="flex space-x-3">
                             <button
                                 onClick={() => setShowDeleteModal(false)}
-                                className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                                className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-sm hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500"
                             >
                                 Annuler
                             </button>
                             <button
                                 onClick={handleDeleteConfirm}
                                 disabled={deletingImage === selectedImage.filename}
-                                className="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {deletingImage === selectedImage.filename ? 'Suppression...' : 'Supprimer'}
                             </button>

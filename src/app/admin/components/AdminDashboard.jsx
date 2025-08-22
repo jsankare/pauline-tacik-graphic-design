@@ -143,11 +143,22 @@ const AdminDashboard = () => {
     const renderContent = () => {
         if (activeTab === 'images') {
             return (
-                <ImagesGrid 
-                    images={data} 
-                    onDelete={() => {}} 
-                    onRefresh={fetchData}
-                />
+                <section className="flex flex-col gap-5">
+                    <p>Si jamais la suppression des images ne fonctionne pas d'ici, aller sur
+                        <a
+                            href="https://console.cloudinary.com/app/c-1c5a15ca291dfb25e028fa03e92886/assets/media_library/search?q=&view_mode=mosaic"
+                            target="blank"
+                            className="text-secondary inline mx-1 underline"
+                        >
+                            ce lien
+                        </a>
+                        et nettoyer les assets non utilisés pour libérer de l'espace.</p>
+                    <ImagesGrid
+                        images={data}
+                        onDelete={() => {}}
+                        onRefresh={fetchData}
+                    />
+                </section>
             );
         }
 
@@ -168,7 +179,7 @@ const AdminDashboard = () => {
                     {activeTab !== 'users' && (
                         <button
                             onClick={handleCreate}
-                            className="inline-flex items-center px-3 sm:px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full sm:w-auto justify-center"
+                            className="inline-flex items-center px-3 sm:px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full sm:w-auto justify-center"
                         >
                             <PlusIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                             Ajouter
@@ -177,7 +188,7 @@ const AdminDashboard = () => {
                 </div>
 
                 {/* Data Table */}
-                <div className="bg-white shadow rounded-lg overflow-hidden">
+                <div className="bg-white shadow rounded-sm overflow-hidden">
                     <DataTable
                         data={data}
                         columns={columns[activeTab]}

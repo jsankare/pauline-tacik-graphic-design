@@ -23,15 +23,14 @@ const AdminLayout = ({ children }) => {
             <header className="w-full border-b border-neutral-200 p-4 flex items-center justify-between">
                 <div className="text-lg font-semibold">Admin</div>
                 <div className="flex items-center gap-3">
-                    <TransitionLink href="/" label="Visit site" />
                     <Button
-                        className="bg-primary text-white transition-all hover:scale-105 hover:cursor-pointer px-4 py-2 rounded-md hover:bg-primary-dark"
+                        className="bg-primary text-white transition-all hover:scale-105 hover:cursor-pointer px-4 py-2 rounded-sm hover:bg-primary-dark"
                         onClick={GoToWebsite}
                         text="Aller sur le site"
                         danger={false}
                     />
                     <Button
-                        className="bg-primary text-white transition-all hover:scale-105 hover:cursor-pointer px-4 py-2 rounded-md hover:bg-primary-dark"
+                        className="bg-primary text-white transition-all hover:scale-105 hover:cursor-pointer px-4 py-2 rounded-sm hover:bg-primary-dark"
                         onClick={handleLogout}
                         text="Logout"
                         danger={true}
