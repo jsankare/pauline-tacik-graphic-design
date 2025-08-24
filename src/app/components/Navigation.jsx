@@ -5,16 +5,7 @@ import Image from "next/image";
 import Logo from "../../../public/logo-inline.png";
 import { usePathname } from "next/navigation";
 
-const ActiveDot = ({ isActive, isMobile, menuOpen }) => {
-    const baseClasses = "absolute h-4 w-4 bg-secondary rounded-3xl transition-all duration-300 left-17 top-4";
-    const mobileClasses = isMobile && menuOpen ? "absolute left-10 bottom-[-10px]" : "";
-    
-    return (
-        <div className={`${baseClasses} ${mobileClasses} ${isActive ? 'opacity-100' : 'opacity-0'}`}></div>
-    )
-}
-
-const Navigation = ({ onLinkClick, isMobile = false, menuOpen = false }) => {
+const Navigation = ({ onLinkClick }) => {
     const pathname = usePathname();
     
     const navItems = [
@@ -41,12 +32,7 @@ const Navigation = ({ onLinkClick, isMobile = false, menuOpen = false }) => {
                             href={item.href} 
                             label={item.label} 
                             onClick={onLinkClick} 
-                            primaryColor={true} 
-                        />
-                        <ActiveDot 
-                            isActive={pathname === item.href} 
-                            isMobile={isMobile}
-                            menuOpen={menuOpen}
+                            primaryColor={true}
                         />
                     </div>
                 ))}
