@@ -29,90 +29,98 @@ const SingleWorkshopPage = async ({ params }) => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto p-4">
-            <H1 title={workshop.name} />
-            
-            <div className="mt-8 space-y-6">
-                {/* Thumbnail */}
-                {workshop.thumbnail && (
-                    <div className="relative w-full h-64 sm:h-96 rounded-sm overflow-hidden">
-                        <Image
-                            src={workshop.thumbnail || '/placeholder.svg'}
-                            alt={workshop.name}
-                            fill
-                            className="object-cover"
-                        />
+        <div className="mx-auto my-auto h-full p-4 text-primary">
+            <div className="flex flex-col lg:flex-row gap-8 py-24 px-24 items-start">
+                {/* Left Side - Information */}
+                <div className="space-y-6 lg:w-3/10 ml-12 flex flex-col">
+                    {/* Title */}
+                    <div className="mt-0 pt-0">
+                        <H1 color="text-primary" align="text-left" title={workshop.name} />
                     </div>
-                )}
-                
-                {/* Workshop Details */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="md:col-span-2 space-y-4">
+
+                    {/* Date */}
+                    {workshop.date && (
                         <div>
-                            <h2 className="text-xl font-semibold text-gray-900 mb-2">Description</h2>
+                            <h3 className="font-semibold mb-1">Date</h3>
+                            <p className="text-gray-700">
+                                {new Date(workshop.date).toLocaleDateString('fr-FR')}
+                            </p>
+                        </div>
+                    )}
+
+                    {/* Duration */}
+                    {workshop.duration && (
+                        <div>
+                            <h3 className="font-semibold mb-1">Durée</h3>
+                            <p className="text-gray-700">{workshop.duration}</p>
+                        </div>
+                    )}
+
+                    {/* Price */}
+                    {workshop.price && (
+                        <div>
+                            <h3 className="font-semibold mb-1">Prix</h3>
+                            <p className="text-gray-700">{workshop.price}€</p>
+                        </div>
+                    )}
+
+                    {/* Capacity */}
+                    {workshop.capacity && (
+                        <div>
+                            <h3 className="font-semibold mb-1">Capacité</h3>
+                            <p className="text-gray-700">{workshop.capacity} personnes</p>
+                        </div>
+                    )}
+
+                    {/* Location */}
+                    {workshop.location && (
+                        <div>
+                            <h3 className="font-semibold mb-1">Lieu</h3>
+                            <p className="text-gray-700">{workshop.location}</p>
+                        </div>
+                    )}
+
+                    {/* Description */}
+                    {workshop.shortDescription && (
+                        <div>
+                            <h3 className="font-semibold mb-2">Description</h3>
                             <p className="text-gray-700">{workshop.shortDescription}</p>
                         </div>
-                        
-                        {workshop.longDescription && (
-                            <div>
-                                <h2 className="text-xl font-semibold text-gray-900 mb-2">Description détaillée</h2>
-                                <p className="text-gray-700">{workshop.longDescription}</p>
-                            </div>
-                        )}
-                        
-                        {workshop.requirements && (
-                            <div>
-                                <h2 className="text-xl font-semibold text-gray-900 mb-2">Prérequis</h2>
-                                <p className="text-gray-700">{workshop.requirements}</p>
-                            </div>
-                        )}
-                    </div>
-                    
-                    <div className="space-y-4">
-                        {workshop.date && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Date</h3>
-                                <p className="text-gray-700">
-                                    {new Date(workshop.date).toLocaleDateString('fr-FR')}
-                                </p>
-                            </div>
-                        )}
-                        
-                        {workshop.duration && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Durée</h3>
-                                <p className="text-gray-700">{workshop.duration}</p>
-                            </div>
-                        )}
-                        
-                        {workshop.price && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Prix</h3>
-                                <p className="text-gray-700">{workshop.price}€</p>
-                            </div>
-                        )}
-                        
-                        {workshop.capacity && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Capacité</h3>
-                                <p className="text-gray-700">{workshop.capacity} personnes</p>
-                            </div>
-                        )}
-                        
-                        {workshop.location && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Lieu</h3>
-                                <p className="text-gray-700">{workshop.location}</p>
-                            </div>
-                        )}
-                    </div>
+                    )}
+
+                    {/* Long Description */}
+                    {workshop.longDescription && (
+                        <div>
+                            <h3 className="font-semibold mb-2">Description détaillée</h3>
+                            <p className="text-gray-700">{workshop.longDescription}</p>
+                        </div>
+                    )}
+
+                    {/* Requirements */}
+                    {workshop.requirements && (
+                        <div>
+                            <h3 className="font-semibold mb-2">Prérequis</h3>
+                            <p className="text-gray-700">{workshop.requirements}</p>
+                        </div>
+                    )}
                 </div>
-                
-                {/* Images Gallery */}
-                {workshop.images && workshop.images.length > 0 && (
-                    <div>
-                        <h2 className="text-xl font-semibold text-gray-900 mb-4">Galerie d'images</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Right Side - Images */}
+                <div className="space-y-4 w-full lg:w-7/10">
+                    {/* Thumbnail */}
+                    {workshop.thumbnail && (
+                        <div className="relative w-full h-96 rounded-sm overflow-hidden">
+                            <Image
+                                src={workshop.thumbnail}
+                                alt={workshop.name}
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                    )}
+                    
+                    {/* Images Gallery */}
+                    {workshop.images && workshop.images.length > 0 && (
+                        <div className="grid grid-cols-2 gap-4">
                             {workshop.images.map((image, index) => (
                                 <div key={index} className="relative h-48 rounded-sm overflow-hidden">
                                     <Image
@@ -124,8 +132,8 @@ const SingleWorkshopPage = async ({ params }) => {
                                 </div>
                             ))}
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );
