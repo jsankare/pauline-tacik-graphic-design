@@ -12,14 +12,14 @@ const SingleProjectPage = async ({ params }) => {
     try {
         const client = await clientPromise;
         const db = client.db();
-        
+
         // Check if the ID is a valid ObjectId
         if (!ObjectId.isValid(projectId)) {
             notFound();
         }
-        
+
         project = await db.collection('projects').findOne({ _id: new ObjectId(projectId) });
-        
+
         if (!project) {
             notFound();
         }
@@ -29,62 +29,25 @@ const SingleProjectPage = async ({ params }) => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto p-4">
-            <H1 title={project.title} />
-            
-            <div className="mt-8 space-y-6">
-                {/* Thumbnail */}
-                {project.thumbnail && (
-                    <div className="relative w-full h-64 sm:h-96 rounded-sm overflow-hidden">
-                        <Image
-                            src={project.thumbnail || '/placeholder.svg'}
-                            alt={project.title}
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                )}
-                
-                {/* Project Details */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="md:col-span-2 space-y-4">
-                        <div>
-                            <h2 className="text-xl font-semibold text-gray-900 mb-2">Description</h2>
-                            <p className="text-gray-700">{project.description}</p>
+        <div className="mx-auto my-auto h-full p-4 text-primary">
+            <div className="flex flex-col lg:flex-row gap-8 py-24 items-start">
+                {/* Left Side - Images */}
+                <div className="space-y-4 w-full lg:w-6/10">
+                    {/* Thumbnail */}
+                    {project.thumbnail && (
+                        <div className="relative w-full h-96 rounded-sm overflow-hidden">
+                            <Image
+                                src={project.thumbnail}
+                                alt={project.title}
+                                fill
+                                className="object-cover"
+                            />
                         </div>
-                        
-                        {project.longDescription && (
-                            <div>
-                                <h2 className="text-xl font-semibold text-gray-900 mb-2">Description détaillée</h2>
-                                <p className="text-gray-700">{project.longDescription}</p>
-                            </div>
-                        )}
-                    </div>
-                    
-                    <div className="space-y-4">
-                        {project.type && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Type</h3>
-                                <p className="text-gray-700">{project.type}</p>
-                            </div>
-                        )}
-                        
-                        {project.date && (
-                            <div>
-                                <h3 className="font-semibold text-gray-900">Date</h3>
-                                <p className="text-gray-700">
-                                    {project.date ? new Date(project.date).getFullYear() : '—'}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-                </div>
-                
-                {/* Images Gallery */}
-                {project.images && project.images.length > 0 && (
-                    <div>
-                        <h2 className="text-xl font-semibold text-gray-900 mb-4">Galerie d'images</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    )}
+
+                    {/* Images Gallery */}
+                    {project.images && project.images.length > 0 && (
+                        <div className="grid grid-cols-2 gap-4">
                             {project.images.map((image, index) => (
                                 <div key={index} className="relative h-48 rounded-sm overflow-hidden">
                                     <Image
@@ -96,8 +59,65 @@ const SingleProjectPage = async ({ params }) => {
                                 </div>
                             ))}
                         </div>
+                    )}
+                </div>
+
+                {/* Right Side - Information */}
+                <div className="space-y-6 lg:w-4/10 flex flex-col">
+                {/* Title */}
+                    <div className="mt-0 pt-0">
+                        <H1 color="text-primary" align="text-left" title={project.title} />
                     </div>
-                )}
+
+                    {/* Type */}
+                    {project.type && (
+                        <div>
+                            <h3 className="font-semibold  mb-1">Type</h3>
+                            <p className="text-gray-700">{project.type}</p>
+                        </div>
+                    )}
+
+                    {/* Date */}
+                    {project.date && (
+                        <div>
+                            <h3 className="font-semibold  mb-1">Date</h3>
+                            <p className="text-gray-700">
+                                {new Date(project.date).getFullYear()}
+                            </p>
+                        </div>
+                    )}
+
+                    {/* Description */}
+                    {project.description && (
+                        <div>
+                            <h3 className="font-semibold  mb-2">Description</h3>
+                            <p className="text-gray-700">{project.description}</p>
+                        </div>
+                    )}
+
+                    {/* Long Description */}
+                    {project.longDescription && (
+                        <div>
+                            <h3 className="font-semibold  mb-2">Description détaillée</h3>
+                            <p className="text-gray-700">{project.longDescription}</p>
+                        </div>
+                    )}
+
+                    {/* Link */}
+                    {project.link && (
+                        <div>
+                            <h3 className="font-semibold  mb-1">Lien</h3>
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:text-blue-800 underline"
+                            >
+                                {project.link}
+                            </a>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
