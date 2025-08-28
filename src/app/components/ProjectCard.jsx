@@ -17,7 +17,7 @@ const ProjectCard = ({ project, href }) => {
 
     return (
     <div className="relative group overflow-hidden shadow-lg bg-gray-100">
-      <div className="aspect-[4/3] relative">
+      <div className="aspect-[1] relative">
         <Image
           fill
           alt={project.title}
@@ -38,16 +38,11 @@ const ProjectCard = ({ project, href }) => {
         )}
 
         {/* Image Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <div className="absolute inset-0 hover:bg-secondary/85 flex items-end opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="p-4 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
             <span className="text-white text-lg font-semibold text-center block drop-shadow-lg">
               {project.title}
             </span>
-            {project.shortDescription && (
-              <span className="text-white/90 text-sm text-center block mt-1 drop-shadow-lg">
-                {project.shortDescription}
-              </span>
-            )}
           </div>
         </div>
       </div>

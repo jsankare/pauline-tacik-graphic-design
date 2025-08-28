@@ -25,7 +25,7 @@ const Navigation = ({ onLinkClick }) => {
                     centered={true}
                 />
             </div>
-            <div className="flex flex-col gap-3 items-center text-primary relative">
+            <div className="flex flex-col gap-3 mt-1 items-center text-primary relative">
                 {navItems.map((item, index) => (
                     <div key={item.href} className="relative">
                         <TransitionLink 

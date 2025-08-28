@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "../components/ui/ui";
+import { H1 } from "../components/ui/ui";
 import { useState } from "react";
 import Image from "next/image";
-import Illustration from "../../../public/hybride-insta2.png"
+import Illustration from "../../../public/gravure-eblouie.jpg"
 
 const AboutPage = () => {
     const [cvDownloaded, setCvDownloaded] = useState(false);
@@ -19,9 +19,7 @@ const AboutPage = () => {
             <div className="max-w-6xl mx-auto px-6 py-20">
                 {/* Top Section - Title and Introduction */}
                 <div className="mb-16">
-                    <h1 className="text-6xl lg:text-7xl font-bold text-primary mb-4">
-                        Pauline Tacik
-                    </h1>
+                    <H1 color="text-primary" title="Pauline Tacik" align="text-left" />
                     <p className="text-xl text-primary italic mb-8">
                         Design graphique, illustration et gravure
                     </p>

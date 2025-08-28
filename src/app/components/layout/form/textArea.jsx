@@ -7,7 +7,7 @@ const TextAreaInput = ({ placeholder, value, onChange, disabled, label, name, re
                 </label>
             )}
             <textarea
-                className="border-none rounded-sm p-3 w-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-secondary/30 resize-none"
+                className="border-none p-3 w-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-secondary/30 resize-none"
                 id={name}
                 name={name}
                 placeholder={placeholder}

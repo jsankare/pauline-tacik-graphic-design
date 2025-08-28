@@ -41,7 +41,6 @@ const SingleWorkshopPage = async ({ params }) => {
                     {/* Date */}
                     {workshop.date && (
                         <div>
-                            <h3 className="font-semibold mb-1">Date</h3>
                             <p className="text-gray-700">
                                 {new Date(workshop.date).toLocaleDateString('fr-FR')}
                             </p>
@@ -51,7 +50,6 @@ const SingleWorkshopPage = async ({ params }) => {
                     {/* Duration */}
                     {workshop.duration && (
                         <div>
-                            <h3 className="font-semibold mb-1">Durée</h3>
                             <p className="text-gray-700">{workshop.duration}</p>
                         </div>
                     )}
@@ -59,23 +57,13 @@ const SingleWorkshopPage = async ({ params }) => {
                     {/* Price */}
                     {workshop.price && (
                         <div>
-                            <h3 className="font-semibold mb-1">Prix</h3>
                             <p className="text-gray-700">{workshop.price}€</p>
-                        </div>
-                    )}
-
-                    {/* Capacity */}
-                    {workshop.capacity && (
-                        <div>
-                            <h3 className="font-semibold mb-1">Capacité</h3>
-                            <p className="text-gray-700">{workshop.capacity} personnes</p>
                         </div>
                     )}
 
                     {/* Location */}
                     {workshop.location && (
                         <div>
-                            <h3 className="font-semibold mb-1">Lieu</h3>
                             <p className="text-gray-700">{workshop.location}</p>
                         </div>
                     )}
@@ -83,7 +71,6 @@ const SingleWorkshopPage = async ({ params }) => {
                     {/* Description */}
                     {workshop.shortDescription && (
                         <div>
-                            <h3 className="font-semibold mb-2">Description</h3>
                             <p className="text-gray-700">{workshop.shortDescription}</p>
                         </div>
                     )}
@@ -91,7 +78,6 @@ const SingleWorkshopPage = async ({ params }) => {
                     {/* Long Description */}
                     {workshop.longDescription && (
                         <div>
-                            <h3 className="font-semibold mb-2">Description détaillée</h3>
                             <p className="text-gray-700">{workshop.longDescription}</p>
                         </div>
                     )}
@@ -99,7 +85,6 @@ const SingleWorkshopPage = async ({ params }) => {
                     {/* Requirements */}
                     {workshop.requirements && (
                         <div>
-                            <h3 className="font-semibold mb-2">Prérequis</h3>
                             <p className="text-gray-700">{workshop.requirements}</p>
                         </div>
                     )}
@@ -108,7 +93,7 @@ const SingleWorkshopPage = async ({ params }) => {
                 <div className="space-y-4 w-full lg:w-7/10">
                     {/* Thumbnail */}
                     {workshop.thumbnail && (
-                        <div className="relative w-full h-96 rounded-sm overflow-hidden">
+                        <div className="relative w-full h-96 overflow-hidden">
                             <Image
                                 src={workshop.thumbnail}
                                 alt={workshop.name}
@@ -122,7 +107,7 @@ const SingleWorkshopPage = async ({ params }) => {
                     {workshop.images && workshop.images.length > 0 && (
                         <div className="grid grid-cols-2 gap-4">
                             {workshop.images.map((image, index) => (
-                                <div key={index} className="relative h-48 rounded-sm overflow-hidden">
+                                <div key={index} className="relative h-48 overflow-hidden">
                                     <Image
                                         src={image}
                                         alt={`${workshop.name} - Image ${index + 1}`}

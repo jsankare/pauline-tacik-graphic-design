@@ -40,9 +40,6 @@ const FilterComponent = ({ data, onFilterChange, filterKey = 'type' }) => {
 
     return (
         <div className="mb-6">
-            <h3 className="text-lg font-semibold text-primary mb-4">
-                Filtrer par type
-            </h3>
             <div className="flex flex-wrap gap-2">
                 {availableFilters.map((filter) => (
                     <button

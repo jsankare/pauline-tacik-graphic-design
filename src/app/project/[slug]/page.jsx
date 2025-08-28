@@ -35,7 +35,7 @@ const SingleProjectPage = async ({ params }) => {
                 <div className="space-y-4 w-full lg:w-6/10">
                     {/* Thumbnail */}
                     {project.thumbnail && (
-                        <div className="relative w-full h-96 rounded-sm overflow-hidden">
+                        <div className="relative w-full h-96 overflow-hidden">
                             <Image
                                 src={project.thumbnail}
                                 alt={project.title}
@@ -49,7 +49,7 @@ const SingleProjectPage = async ({ params }) => {
                     {project.images && project.images.length > 0 && (
                         <div className="grid grid-cols-2 gap-4">
                             {project.images.map((image, index) => (
-                                <div key={index} className="relative h-48 rounded-sm overflow-hidden">
+                                <div key={index} className="relative h-48 overflow-hidden">
                                     <Image
                                         src={image}
                                         alt={`${project.title} - Image ${index + 1}`}
@@ -72,7 +72,6 @@ const SingleProjectPage = async ({ params }) => {
                     {/* Type */}
                     {project.type && (
                         <div>
-                            <h3 className="font-semibold  mb-1">Type</h3>
                             <p className="text-gray-700">{project.type}</p>
                         </div>
                     )}
@@ -80,7 +79,6 @@ const SingleProjectPage = async ({ params }) => {
                     {/* Date */}
                     {project.date && (
                         <div>
-                            <h3 className="font-semibold  mb-1">Date</h3>
                             <p className="text-gray-700">
                                 {new Date(project.date).getFullYear()}
                             </p>
@@ -90,7 +88,6 @@ const SingleProjectPage = async ({ params }) => {
                     {/* Description */}
                     {project.description && (
                         <div>
-                            <h3 className="font-semibold  mb-2">Description</h3>
                             <p className="text-gray-700">{project.description}</p>
                         </div>
                     )}
@@ -98,7 +95,6 @@ const SingleProjectPage = async ({ params }) => {
                     {/* Long Description */}
                     {project.longDescription && (
                         <div>
-                            <h3 className="font-semibold  mb-2">Description détaillée</h3>
                             <p className="text-gray-700">{project.longDescription}</p>
                         </div>
                     )}

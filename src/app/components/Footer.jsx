@@ -3,7 +3,7 @@ import TransitionLink from "./TransitionLink";
 
 const Footer = () => {
     return (
-        <footer className="w-full h-20 shrink-0 border-t border-neutral-200 p-5">
+        <footer className="w-full h-20 shrink-0 p-5">
             <section>
                 <p className="text-center text-sm text-neutral-500">
                     &copy; 2020 - {new Date().getFullYear()} Pauline Tacik. Tous droits réservés.

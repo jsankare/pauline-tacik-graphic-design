@@ -23,7 +23,7 @@ const BasicInput = ({ type, placeholder, value, onChange, disabled, label, name,
             )}
             <div className="relative w-full">
                 <input
-                    className="border-none rounded-sm p-3 w-full pr-10 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-secondary/30"
+                    className="border-none p-3 w-full pr-10 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-secondary/30"
                     id={name}
                     type={type === 'password' && showPassword ? 'text' : type}
                     name={name}
