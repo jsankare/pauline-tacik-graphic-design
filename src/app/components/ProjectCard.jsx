@@ -46,22 +46,6 @@ const ProjectCard = ({ project, href }) => {
             <span className="text-white text-lg font-semibold text-center block drop-shadow-lg mb-2">
               {project.title}
             </span>
-            
-            {/* Types */}
-            {types.length > 0 && (
-              <div className="flex flex-wrap gap-1 justify-center">
-                {types.slice(0, 3).map((type, index) => (
-                  <span key={index} className="px-2 py-1 bg-white/20 text-white text-xs rounded-full backdrop-blur-sm">
-                    {type}
-                  </span>
-                ))}
-                {types.length > 3 && (
-                  <span className="px-2 py-1 bg-white/20 text-white text-xs rounded-full backdrop-blur-sm">
-                    +{types.length - 3}
-                  </span>
-                )}
-              </div>
-            )}
           </div>
         </div>
       </div>
