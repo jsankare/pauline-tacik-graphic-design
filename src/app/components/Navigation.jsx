@@ -33,6 +33,9 @@ const Navigation = ({ onLinkClick }) => {
                             label={item.label} 
                             onClick={onLinkClick} 
                             primaryColor={true}
+                            className={`font-omnes-semicond hover:font-aracau transition-all duration-200 ${
+                                pathname === item.href ? 'font-aracau' : ''
+                            }`}
                         />
                     </div>
                 ))}

@@ -6,10 +6,18 @@ const FilterComponent = ({ data, onFilterChange, filterKey = 'type' }) => {
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [availableFilters, setAvailableFilters] = useState([]);
 
-    // Extraire les types uniques des données
+    // Extract unique types from data, handling multiple types per item
     useEffect(() => {
         if (data && data.length > 0) {
-            const uniqueTypes = [...new Set(data.map(item => item[filterKey]).filter(Boolean))];
+            const allTypes = [];
+            data.forEach(item => {
+                if (item[filterKey]) {
+                    // Split by comma and trim whitespace to handle multiple types
+                    const types = item[filterKey].split(',').map(type => type.trim()).filter(Boolean);
+                    allTypes.push(...types);
+                }
+            });
+            const uniqueTypes = [...new Set(allTypes)];
             setAvailableFilters(uniqueTypes);
         }
     }, [data, filterKey]);
@@ -24,14 +32,16 @@ const FilterComponent = ({ data, onFilterChange, filterKey = 'type' }) => {
         });
     };
 
-    // Appliquer les filtres aux données
+    // Apply filters to data, checking if any of the item's types match selected filters
     useEffect(() => {
         if (selectedFilters.length === 0) {
             onFilterChange(data);
         } else {
-            const filtered = data.filter(item => 
-                selectedFilters.includes(item[filterKey])
-            );
+            const filtered = data.filter(item => {
+                if (!item[filterKey]) return false;
+                const itemTypes = item[filterKey].split(',').map(type => type.trim());
+                return itemTypes.some(type => selectedFilters.includes(type));
+            });
             onFilterChange(filtered);
         }
     }, [selectedFilters, data, filterKey, onFilterChange]);

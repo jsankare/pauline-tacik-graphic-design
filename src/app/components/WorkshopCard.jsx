@@ -15,6 +15,9 @@ const WorkshopCard = ({ workshop, href }) => {
     setImageError(true);
   };
 
+  // Parse types
+  const types = workshop.type ? workshop.type.split(',').map(type => type.trim()).filter(Boolean) : [];
+
   return (
     <div className="relative group overflow-hidden shadow-lg bg-gray-100">
       <div className="aspect-[4/3] relative">
@@ -40,13 +43,29 @@ const WorkshopCard = ({ workshop, href }) => {
         {/* Image Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="p-4 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="text-white text-lg font-semibold text-center block drop-shadow-lg">
+            <span className="text-white text-lg font-semibold text-center block drop-shadow-lg mb-2">
               {workshop.name}
             </span>
             {workshop.shortDescription && (
-              <span className="text-white/90 text-sm text-center block mt-1 drop-shadow-lg">
+              <span className="text-white/90 text-sm text-center block mb-2 drop-shadow-lg">
                 {workshop.shortDescription}
               </span>
+            )}
+            
+            {/* Types */}
+            {types.length > 0 && (
+              <div className="flex flex-wrap gap-1 justify-center">
+                {types.slice(0, 3).map((type, index) => (
+                  <span key={index} className="px-2 py-1 bg-white/20 text-white text-xs rounded-full backdrop-blur-sm">
+                    {type}
+                  </span>
+                ))}
+                {types.length > 3 && (
+                  <span className="px-2 py-1 bg-white/20 text-white text-xs rounded-full backdrop-blur-sm">
+                    +{types.length - 3}
+                  </span>
+                )}
+              </div>
             )}
           </div>
         </div>

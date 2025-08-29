@@ -3,12 +3,14 @@ import Image from 'next/image';
 import { H1 } from '../../components/ui/ui';
 import clientPromise from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
+import NavigationArrows from '../../components/NavigationArrows';
 
 const SingleProjectPage = async ({ params }) => {
     const projectId = params.slug;
 
     // Fetch project from MongoDB
     let project = null;
+    let allProjects = [];
     try {
         const client = await clientPromise;
         const db = client.db();
@@ -23,13 +25,24 @@ const SingleProjectPage = async ({ params }) => {
         if (!project) {
             notFound();
         }
+
+        // Fetch all projects for navigation
+        allProjects = await db.collection('projects').find({}).sort({ date: -1 }).toArray();
     } catch (error) {
         console.error('Error fetching project:', error);
         notFound();
     }
 
+    // Find current project index and get previous/next
+    const currentIndex = allProjects.findIndex(p => p._id.toString() === projectId);
+    const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+    const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
+
+    // Parse types
+    const types = project.type ? project.type.split(',').map(type => type.trim()).filter(Boolean) : [];
+
     return (
-        <div className="mx-auto my-auto h-full p-4 text-primary">
+        <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
             <div className="flex flex-col lg:flex-row gap-8 py-24 items-start">
                 {/* Left Side - Images */}
                 <div className="space-y-4 w-full lg:w-6/10">
@@ -69,17 +82,21 @@ const SingleProjectPage = async ({ params }) => {
                         <H1 color="text-primary" align="text-left" title={project.title} />
                     </div>
 
-                    {/* Type */}
-                    {project.type && (
-                        <div>
-                            <p className="text-gray-700">{project.type}</p>
+                    {/* Types */}
+                    {types.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                            {types.map((type, index) => (
+                                <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-omnes-semicond">
+                                    {type}
+                                </span>
+                            ))}
                         </div>
                     )}
 
                     {/* Date */}
                     {project.date && (
                         <div>
-                            <p className="text-gray-700">
+                            <p className="text-gray-700 font-omnes-semicond">
                                 {new Date(project.date).getFullYear()}
                             </p>
                         </div>
@@ -88,26 +105,26 @@ const SingleProjectPage = async ({ params }) => {
                     {/* Description */}
                     {project.description && (
                         <div>
-                            <p className="text-gray-700">{project.description}</p>
+                            <p className="text-gray-700 font-omnes-semicond">{project.description}</p>
                         </div>
                     )}
 
                     {/* Long Description */}
                     {project.longDescription && (
                         <div>
-                            <p className="text-gray-700">{project.longDescription}</p>
+                            <p className="text-gray-700 font-omnes-semicond">{project.longDescription}</p>
                         </div>
                     )}
 
                     {/* Link */}
                     {project.link && (
                         <div>
-                            <h3 className="font-semibold  mb-1">Lien</h3>
+                            <h3 className="font-semibold mb-1" style={{fontFamily: 'var(--font-aracau)'}}>Lien</h3>
                             <a
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-800 underline"
+                                className="text-blue-600 hover:text-blue-800 underline font-omnes-semicond"
                             >
                                 {project.link}
                             </a>
@@ -115,6 +132,11 @@ const SingleProjectPage = async ({ params }) => {
                     )}
                 </div>
             </div>
+            <NavigationArrows
+                prevItem={prevProject ? { id: prevProject._id.toString(), title: prevProject.title } : null}
+                nextItem={nextProject ? { id: nextProject._id.toString(), title: nextProject.title } : null}
+                basePath="/project"
+            />
         </div>
     );
 };

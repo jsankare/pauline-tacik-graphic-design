@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { animatePageOut } from "@/utils/animations";
 
-const TransitionLink = ({ href, label, onClick, centered = false, primaryColor = false, isLogo = false }) => {
+const TransitionLink = ({ href, label, onClick, centered = false, primaryColor = false, isLogo = false, className = "" }) => {
     const router = useRouter();
     const pathname = usePathname();
 
@@ -23,6 +23,7 @@ const TransitionLink = ({ href, label, onClick, centered = false, primaryColor =
                 ${primaryColor ? "text-primary hover:text-secondary" : "text-neutral-900"} 
                 ${centered ? "flex justify-center items-center" : ""}
                 ${isActive ? "underline underline-offset-4 decoration-2" : ""}
+                ${className}
             `}
             onClick={handleClick}
         >

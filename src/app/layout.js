@@ -28,7 +28,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
       <html lang="fr">
-          <body className={Aracau.variable} style={{fontFamily: 'var(--font-aracau)'}}>
+          <head>
+              <link rel="stylesheet" href="https://use.typekit.net/kuk3zwb.css" />
+          </head>
+          <body className={`${Aracau.variable} font-omnes-semicond`}>
               <RootShell>
               <CustomCursor />
                 {children}

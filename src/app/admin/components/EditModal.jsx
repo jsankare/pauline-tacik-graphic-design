@@ -68,7 +68,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'orientation', label: 'Orientation', type: 'toggle', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },
-                    { field: 'type', label: 'Type', type: 'text', required: false },
+                    { field: 'type', label: 'Types (séparés par des virgules)', type: 'textarea', required: false },
                     { field: 'link', label: 'Lien', type: 'url', required: false }
                 ];
             case 'workshop':
@@ -85,7 +85,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'price', label: 'Prix (€)', type: 'number', required: true },
                     { field: 'location', label: 'Lieu', type: 'text', required: true },
                     { field: 'capacity', label: 'Capacité', type: 'number', required: true },
-                    { field: 'type', label: 'Type', type: 'text', required: false },
+                    { field: 'type', label: 'Types (séparés par des virgules)', type: 'textarea', required: false },
                     { field: 'requirements', label: 'Prérequis', type: 'textarea', required: false }
                 ];
             case 'user':

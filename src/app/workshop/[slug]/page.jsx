@@ -3,12 +3,14 @@ import Image from 'next/image';
 import { H1 } from '../../components/ui/ui';
 import clientPromise from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
+import NavigationArrows from '../../components/NavigationArrows';
 
 const SingleWorkshopPage = async ({ params }) => {
     const workshopId = params.slug;
 
     // Fetch workshop from MongoDB
     let workshop = null;
+    let allWorkshops = [];
     try {
         const client = await clientPromise;
         const db = client.db();
@@ -23,13 +25,24 @@ const SingleWorkshopPage = async ({ params }) => {
         if (!workshop) {
             notFound();
         }
+
+        // Fetch all workshops for navigation
+        allWorkshops = await db.collection('workshops').find({}).sort({ date: -1 }).toArray();
     } catch (error) {
         console.error('Error fetching workshop:', error);
         notFound();
     }
 
+    // Find current workshop index and get previous/next
+    const currentIndex = allWorkshops.findIndex(w => w._id.toString() === workshopId);
+    const prevWorkshop = currentIndex > 0 ? allWorkshops[currentIndex - 1] : null;
+    const nextWorkshop = currentIndex < allWorkshops.length - 1 ? allWorkshops[currentIndex + 1] : null;
+
+    // Parse types
+    const types = workshop.type ? workshop.type.split(',').map(type => type.trim()).filter(Boolean) : [];
+
     return (
-        <div className="mx-auto my-auto h-full p-4 text-primary">
+        <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
             <div className="flex flex-col lg:flex-row gap-8 py-24 px-24 items-start">
                 {/* Left Side - Information */}
                 <div className="space-y-6 lg:w-3/10 ml-12 flex flex-col">
@@ -38,10 +51,21 @@ const SingleWorkshopPage = async ({ params }) => {
                         <H1 color="text-primary" align="text-left" title={workshop.name} />
                     </div>
 
+                    {/* Types */}
+                    {types.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                            {types.map((type, index) => (
+                                <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-omnes-semicond">
+                                    {type}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
                     {/* Date */}
                     {workshop.date && (
                         <div>
-                            <p className="text-gray-700">
+                            <p className="text-gray-700 font-omnes-semicond">
                                 {new Date(workshop.date).toLocaleDateString('fr-FR')}
                             </p>
                         </div>
@@ -50,42 +74,42 @@ const SingleWorkshopPage = async ({ params }) => {
                     {/* Duration */}
                     {workshop.duration && (
                         <div>
-                            <p className="text-gray-700">{workshop.duration}</p>
+                            <p className="text-gray-700 font-omnes-semicond">{workshop.duration}</p>
                         </div>
                     )}
 
                     {/* Price */}
                     {workshop.price && (
                         <div>
-                            <p className="text-gray-700">{workshop.price}€</p>
+                            <p className="text-gray-700 font-omnes-semicond">{workshop.price}€</p>
                         </div>
                     )}
 
                     {/* Location */}
                     {workshop.location && (
                         <div>
-                            <p className="text-gray-700">{workshop.location}</p>
+                            <p className="text-gray-700 font-omnes-semicond">{workshop.location}</p>
                         </div>
                     )}
 
                     {/* Description */}
                     {workshop.shortDescription && (
                         <div>
-                            <p className="text-gray-700">{workshop.shortDescription}</p>
+                            <p className="text-gray-700 font-omnes-semicond">{workshop.shortDescription}</p>
                         </div>
                     )}
 
                     {/* Long Description */}
                     {workshop.longDescription && (
                         <div>
-                            <p className="text-gray-700">{workshop.longDescription}</p>
+                            <p className="text-gray-700 font-omnes-semicond">{workshop.longDescription}</p>
                         </div>
                     )}
 
                     {/* Requirements */}
                     {workshop.requirements && (
                         <div>
-                            <p className="text-gray-700">{workshop.requirements}</p>
+                            <p className="text-gray-700 font-omnes-semicond">{workshop.requirements}</p>
                         </div>
                     )}
                 </div>
@@ -120,6 +144,11 @@ const SingleWorkshopPage = async ({ params }) => {
                     )}
                 </div>
             </div>
+            <NavigationArrows
+                prevItem={prevWorkshop ? { id: prevWorkshop._id.toString(), title: prevWorkshop.name } : null}
+                nextItem={nextWorkshop ? { id: nextWorkshop._id.toString(), title: nextWorkshop.name } : null}
+                basePath="/workshop"
+            />
         </div>
     );
 };

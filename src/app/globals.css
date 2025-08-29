@@ -21,6 +21,16 @@
     font-family: var(--font-aracau), serif !important;
 }
 
+/* Omnes Semicond font class */
+.font-omnes-semicond {
+    font-family: 'omnes-semicond', sans-serif !important;
+}
+
+/* Hover states for navigation */
+.hover\:font-aracau:hover {
+    font-family: var(--font-aracau) !important;
+}
+
 /* Hide global chrome (Navigation aside and Footer) on 404 when .hide-chrome is present */
 .hide-chrome aside,
 .hide-chrome footer {
