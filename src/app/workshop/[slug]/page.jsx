@@ -45,7 +45,7 @@ const SingleWorkshopPage = async ({ params }) => {
         <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
             <div className="flex flex-col lg:flex-row gap-8 py-24 px-24 items-start">
                 {/* Left Side - Information */}
-                <div className="space-y-6 lg:w-3/10 ml-12 flex flex-col">
+                <div className="space-y-6 lg:w-6/10 flex flex-col">
                     {/* Title */}
                     <div className="mt-0 pt-0">
                         <H1 color="text-primary" align="text-left" title={workshop.name} />
@@ -114,7 +114,7 @@ const SingleWorkshopPage = async ({ params }) => {
                     )}
                 </div>
                 {/* Right Side - Images */}
-                <div className="space-y-4 w-full lg:w-7/10">
+                <div className="space-y-4 w-full lg:w-4/10">
                     {/* Thumbnail */}
                     {workshop.thumbnail && (
                         <div className="relative w-full h-96 overflow-hidden">

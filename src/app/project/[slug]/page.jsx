@@ -45,10 +45,10 @@ const SingleProjectPage = async ({ params }) => {
         <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
             <div className="flex flex-col lg:flex-row gap-8 py-24 items-start">
                 {/* Left Side - Images */}
-                <div className="space-y-4 w-full lg:w-6/10">
+                <div className="space-y-4 w-full lg:w-5/10">
                     {/* Thumbnail */}
                     {project.thumbnail && (
-                        <div className="relative w-full h-96 overflow-hidden">
+                        <div className="relative w-full h-[500px] lg:h-[600px] overflow-hidden">
                             <Image
                                 src={project.thumbnail}
                                 alt={project.title}
@@ -62,7 +62,7 @@ const SingleProjectPage = async ({ params }) => {
                     {project.images && project.images.length > 0 && (
                         <div className="grid grid-cols-2 gap-4">
                             {project.images.map((image, index) => (
-                                <div key={index} className="relative h-48 overflow-hidden">
+                                <div key={index} className="relative h-64 lg:h-80 overflow-hidden">
                                     <Image
                                         src={image}
                                         alt={`${project.title} - Image ${index + 1}`}
@@ -76,7 +76,7 @@ const SingleProjectPage = async ({ params }) => {
                 </div>
 
                 {/* Right Side - Information */}
-                <div className="space-y-6 lg:w-4/10 flex flex-col">
+                <div className="space-y-6 lg:w-5/10 flex flex-col lg:pl-12">
                 {/* Title */}
                     <div className="mt-0 pt-0">
                         <H1 color="text-primary" align="text-left" title={project.title} />
