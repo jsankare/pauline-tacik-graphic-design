@@ -28,7 +28,7 @@ const ProjectCard = ({ project, href }) => {
           className={`object-cover transition-all duration-300 group-hover:scale-105 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 40vw, 25vw"
           onLoad={handleImageLoad}
           onError={handleImageError}
         />

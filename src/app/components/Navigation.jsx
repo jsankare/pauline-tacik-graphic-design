@@ -20,7 +20,7 @@ const Navigation = ({ onLinkClick }) => {
             <div className="flex justify-center items-center">
                 <TransitionLink
                     href="/"
-                    label={<Image src={Logo} alt="ceci est un logo" width={250} height={250} />}
+                    label={<Image src={Logo} alt="ceci est un logo" width={350} height={350} />}
                     onClick={onLinkClick}
                     centered={true}
                 />
@@ -33,7 +33,7 @@ const Navigation = ({ onLinkClick }) => {
                             label={item.label} 
                             onClick={onLinkClick} 
                             primaryColor={true}
-                            className={`font-omnes-semicond hover:font-aracau transition-all duration-200 ${
+                            className={`text-2xl font-omnes-semicond hover:font-aracau transition-all duration-200 ${
                                 pathname === item.href ? 'font-aracau' : ''
                             }`}
                         />

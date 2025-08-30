@@ -94,18 +94,21 @@ const AboutPage = () => {
                 </div>
 
                 {/* Contact Button Section */}
-                <div className="text-center">
+                <div className="w-full text-center flex items-center justify-evenly">
+                    <p className="text-3xl text-gray-900 font-omnes-semicond">
+                        Envie de <span className="text-primary font-semibold">collaborer</span> ?
+                    </p>
+
                     <TransitionLink
                         href="/contact"
                         label={
-                            <Button 
-                                text="Me contacter" 
-                                onClick={() => {}} 
-                                disabled={false}
-                            />
+                            <span className="inline-block px-6 py-2 border border-primary text-primary rounded-full font-omnes-semicond transition-colors duration-300 hover:bg-primary hover:text-white">
+                                Contactez-moi
+                            </span>
                         }
                     />
                 </div>
+
 
             </div>
         </div>

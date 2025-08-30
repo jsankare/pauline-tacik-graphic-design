@@ -17,7 +17,7 @@ const RootShell = ({ children }) => {
 
             <div className="min-h-screen flex">
                 {!isAdmin && (
-                    <aside className="hidden md:block w-64 shrink-0 p-5">
+                    <aside className="hidden md:block w-100 shrink-0 p-5">
                         <Navigation isMobile={false} menuOpen={false} />
                     </aside>
                 )}

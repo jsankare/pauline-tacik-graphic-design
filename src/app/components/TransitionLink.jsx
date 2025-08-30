@@ -19,7 +19,7 @@ const TransitionLink = ({ href, label, onClick, centered = false, primaryColor =
     return (
         <button
             className={`
-                min-w-fit text-xl hover:text-neutral-700 hover:cursor-pointer
+                min-w-fit text-3xl hover:text-neutral-700 hover:cursor-pointer
                 ${primaryColor ? "text-primary hover:text-secondary" : "text-neutral-900"} 
                 ${centered ? "flex justify-center items-center" : ""}
                 ${isActive ? "underline underline-offset-4 decoration-2" : ""}
