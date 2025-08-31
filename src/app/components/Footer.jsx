@@ -4,12 +4,12 @@ import TransitionLink from "./TransitionLink";
 const Footer = () => {
     return (
         <footer className="w-full h-20 shrink-0 p-5 font-omnes-semicond">
-            <section className="w-full justify-between mx-auto flex pb-3">
-                <div className="text-left">
-                    <p className="text-left text-primary/60 font-omnes-semicond">
+            <section className="w-full mx-auto flex flex-col-reverse gap-4 md:flex-row justify-between pb-3">
+                <div className="text-center md:text-left">
+                    <p className="text-center md:text-left text-primary/60 font-omnes-semicond">
                         &copy; 2020 - {new Date().getFullYear()} Pauline Tacik. Tous droits réservés.
                     </p>
-                    <p className="text-left text-primary/60 font-omnes-semicond">
+                    <p className="text-center md:text-left text-primary/60 font-omnes-semicond">
                         Fait avec <span className="text-red-500">♥</span> par <Link className="text-primary hover:text-secondary transition-colors duration-200" target={"blank"} href={"https://www.jsankare.dev"}>Jordan Sankaré</Link>
                     </p>
                 </div>

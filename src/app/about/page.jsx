@@ -67,34 +67,42 @@ const AboutPage = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-4 grid-rows-2 gap-12 mb-16">
+                <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-8 lg:gap-12 mb-16 text-center">
                     {/* Row 1 */}
                     <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{fontFamily: 'var(--font-aracau)'}}>identités visuelles</h3>
+                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
+                            identités visuelles
+                        </h3>
                         <p className="text-gray-900 font-omnes-semicond">Logos, chartes graphiques</p>
                     </div>
-                    <div></div> {/* empty */}
+                    <div className="hidden lg:block"></div> {/* empty */}
                     <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{fontFamily: 'var(--font-aracau)'}}>illustrations & gravures</h3>
+                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
+                            illustrations & gravures
+                        </h3>
                         <p className="text-gray-900 font-omnes-semicond">Créations sur mesure</p>
                     </div>
-                    <div></div> {/* empty */}
+                    <div className="hidden lg:block"></div> {/* empty */}
 
                     {/* Row 2 */}
-                    <div></div> {/* empty */}
+                    <div className="hidden lg:block"></div> {/* empty */}
                     <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{fontFamily: 'var(--font-aracau)'}}>supports imprimés</h3>
+                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
+                            supports imprimés
+                        </h3>
                         <p className="text-gray-900 font-omnes-semicond">Brochures, affiches, cartes</p>
                     </div>
-                    <div></div> {/* empty */}
+                    <div className="hidden lg:block"></div> {/* empty */}
                     <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{fontFamily: 'var(--font-aracau)'}}>ateliers tous publics</h3>
+                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
+                            ateliers tous publics
+                        </h3>
                         <p className="text-gray-900 font-omnes-semicond">Partage de pratiques artistiques</p>
                     </div>
                 </div>
 
                 {/* Contact Button Section */}
-                <div className="w-full text-center flex items-center justify-evenly">
+                <div className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-evenly text-center gap-6">
                     <p className="text-3xl text-gray-900 font-omnes-semicond">
                         Envie de <span className="text-primary font-semibold">collaborer</span> ?
                     </p>
@@ -104,10 +112,11 @@ const AboutPage = () => {
                         label={
                             <span className="inline-block px-6 py-2 border border-primary text-primary rounded-full font-omnes-semicond transition-colors duration-300 hover:bg-primary hover:text-white">
                                 Contactez-moi
-                            </span>
+                             </span>
                         }
                     />
                 </div>
+
 
 
             </div>
