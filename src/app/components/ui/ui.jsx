@@ -5,11 +5,12 @@ export const H1 = ({
                     italic = false,
                     bold = true,
                     size = "text-5xl",
+                    noMt = false,
                 }) => {
     return (
         <h1
             className={`
-        mt-10
+        ${noMt ? "mt-0" : "mt-10"}
         ${color}
         ${align}
         ${italic ? "italic" : ""}
@@ -66,7 +67,7 @@ export const H3 = ({
         ${bold ? "font-bold" : "font-normal"}
         ${size}
         `}
-            style={{fontFamily: 'var(--font-aracau)'}}
+            // style={{fontFamily: 'var(--font-aracau)'}}
         >
             {title}
         </h3>
@@ -78,7 +79,7 @@ export const Button = ({ text, onClick, disabled = false, danger = false, admin 
     return (
         <button
             className={`w-full min-w-fit transition-all duration-200 hover:scale-105 hover:cursor-pointer px-6 py-3 
-            font-medium text-sm disabled:bg-gray-300 disabled:cursor-not-allowed disabled:scale-100 font-omnes-semicond
+            font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 font-omnes-semicond
                 ${danger ? "bg-red-500 hover:bg-red-600 text-white shadow-lg hover:shadow-xl" : admin ? "bg-transparent" +
                 " border border-secondary text-secondary" : 
                 "bg-secondary hover:bg-secondary/90 text-white shadow-lg hover:shadow-xl"}

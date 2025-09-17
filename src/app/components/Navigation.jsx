@@ -15,6 +15,9 @@ const Navigation = ({ onLinkClick }) => {
         { href: "/contact", label: "Contact" }
     ];
 
+    console.log({pathname})
+    console.log("toto", navItems[1].href);
+
     return (
         <nav className="flex flex-col gap-6">
             <div className="flex justify-center items-center">
@@ -33,8 +36,8 @@ const Navigation = ({ onLinkClick }) => {
                             label={item.label} 
                             onClick={onLinkClick} 
                             primaryColor={true}
-                            className={`text-2xl font-omnes-semicond hover:font-aracau transition-all duration-200 ${
-                                pathname === item.href ? 'font-aracau' : ''
+                            className={`text-[1.4rem] transition-all duration-200 ${
+                                pathname === item.href ? 'font-aracau' : 'font-omnes-semicond hover:font-aracau'
                             }`}
                         />
                     </div>

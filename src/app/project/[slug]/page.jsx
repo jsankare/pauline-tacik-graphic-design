@@ -29,7 +29,7 @@ const SingleProjectPage = async ({ params }) => {
         // Fetch all projects for navigation
         allProjects = await db.collection('projects').find({}).sort({ date: -1 }).toArray();
     } catch (error) {
-        console.error('Error fetching project:', error);
+        console.error('Error fetching projects:', error);
         notFound();
     }
 
@@ -43,31 +43,33 @@ const SingleProjectPage = async ({ params }) => {
 
     return (
         <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
-            <div className="flex flex-col lg:flex-row gap-8 py-24 items-start">
-                {/* Left Side - Images */}
-                <div className="space-y-4 w-full lg:w-5/10">
+            <div className="mx-auto max-w-[80%] py-24 flex flex-col-reverse gap-12 items-start">
+                {/* Images */}
+                <div className="flex-1 flex flex-col items-center gap-6 w-full">
                     {/* Thumbnail */}
                     {project.thumbnail && (
-                        <div className="relative w-full h-[500px] lg:h-[600px] overflow-hidden">
+                        <div className="flex items-center justify-center w-full h-[600px]">
                             <Image
                                 src={project.thumbnail}
                                 alt={project.title}
-                                fill
-                                className="object-cover"
+                                width={900}
+                                height={600}
+                                className="object-contain max-h-full w-auto"
                             />
                         </div>
                     )}
 
-                    {/* Images Gallery */}
+                    {/* Gallery */}
                     {project.images && project.images.length > 0 && (
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="flex flex-col items-center gap-6 w-full">
                             {project.images.map((image, index) => (
-                                <div key={index} className="relative h-64 lg:h-80 overflow-hidden">
+                                <div key={index} className="flex items-center justify-center w-full h-[600px]">
                                     <Image
                                         src={image}
                                         alt={`${project.title} - Image ${index + 1}`}
-                                        fill
-                                        className="object-cover"
+                                        width={900}
+                                        height={600}
+                                        className="object-contain max-h-full w-auto"
                                     />
                                 </div>
                             ))}
@@ -75,62 +77,58 @@ const SingleProjectPage = async ({ params }) => {
                     )}
                 </div>
 
-                {/* Right Side - Information */}
-                <div className="space-y-6 lg:w-5/10 flex flex-col lg:pl-12">
-                {/* Title */}
-                    <div className="mt-0 pt-0">
-                        <H1 color="text-primary" align="text-left" title={project.title} />
-                    </div>
-
-                    {/* Types */}
-                    {types.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                            {types.map((type, index) => (
-                                <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-omnes-semicond">
-                                    {type}
-                                </span>
-                            ))}
+                {/* Infos */}
+                <div className="flex-1 flex flex-col h-full max-w-[900px] mx-auto">
+                    <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
+                    {/* Col gauche : titre + types */}
+                        <div className="space-y-4">
+                            <H1 noMt color="text-primary" align="text-left" title={project.title} />
+                            {types.length > 0 && (
+                                <div className="flex flex-wrap gap-2 mt-2">
+                                    {types.map((type, index) => (
+                                        <span
+                                            key={index}
+                                            className="px-3 py-1 bg-gray-100 rounded-full text-sm font-omnes-semicond"
+                                        >
+                                            {type}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                    )}
 
-                    {/* Date */}
-                    {project.date && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">
-                                {new Date(project.date).getFullYear()}
-                            </p>
+                        {/* Col droite : reste des infos */}
+                        <div className="space-y-4">
+                            {project.date && (
+                                <p className="font-medium font-omnes-semicond">
+                                    {new Date(project.date).getFullYear()}
+                                </p>
+                            )}
+                            {project.shortDescription && <p>{project.shortDescription}</p>}
+                            {project.description && <p>{project.description}</p>}
+                            {project.longDescription && <p className="italic">{project.longDescription}</p>}
+                            {project.link && (
+                                <div>
+                                    <h3
+                                        className="font-semibold mb-1"
+                                        style={{ fontFamily: 'var(--font-aracau)' }}
+                                    >
+                                        Lien
+                                    </h3>
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-600 hover:text-blue-800 underline"
+                                    >
+                                        {project.link}
+                                    </a>
+                                </div>
+                            )}
                         </div>
-                    )}
-
-                    {/* Description */}
-                    {project.description && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{project.description}</p>
-                        </div>
-                    )}
-
-                    {/* Long Description */}
-                    {project.longDescription && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{project.longDescription}</p>
-                        </div>
-                    )}
-
-                    {/* Link */}
-                    {project.link && (
-                        <div>
-                            <h3 className="font-semibold mb-1" style={{fontFamily: 'var(--font-aracau)'}}>Lien</h3>
-                            <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-800 underline font-omnes-semicond"
-                            >
-                                {project.link}
-                            </a>
-                        </div>
-                    )}
+                    </section>
                 </div>
+
             </div>
             <NavigationArrows
                 prevItem={prevProject ? { id: prevProject._id.toString(), title: prevProject.title } : null}

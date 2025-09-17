@@ -66,8 +66,10 @@ const ContactPage = () => {
                 <div className="mb-12 w-full flex flex-col items-start text-primary">
                     <H1 title="Me contacter" color="text-primary" />
                     <p className="mt-4 text-lg max-w-2xl">
-                        Vous avez un projet en tête ? Une question ? N'hésitez pas à me contacter, 
-                        je serai ravie d'échanger avec vous !
+                        Vous avez un projet en tête ? Une question ?
+                    </p>
+                    <p className="mt-4 text-lg max-w-2xl">
+                        N'hésitez pas à me contacter, je serai ravie d'échanger avec vous !
                     </p>
                 </div>
 
@@ -79,11 +81,6 @@ const ContactPage = () => {
                                 <h3 className="text-2xl font-bold mb-6">
                                     Discutons de votre <span className="text-secondary" >projet</span>
                                 </h3>
-                                <p className="leading-relaxed">
-                                    Que ce soit pour une identité visuelle, une campagne publicitaire, 
-                                    ou tout autre projet créatif, je suis là pour vous accompagner 
-                                    dans la réalisation de vos objectifs.
-                                </p>
                             </div>
                         </div>
 

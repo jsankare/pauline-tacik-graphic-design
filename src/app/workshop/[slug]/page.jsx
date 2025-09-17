@@ -43,106 +43,76 @@ const SingleWorkshopPage = async ({ params }) => {
 
     return (
         <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
-            <div className="flex flex-col lg:flex-row gap-8 py-24 px-24 items-start">
-                {/* Left Side - Information */}
-                <div className="space-y-6 lg:w-6/10 flex flex-col">
-                    {/* Title */}
-                    <div className="mt-0 pt-0">
-                        <H1 color="text-primary" align="text-left" title={workshop.name} />
-                    </div>
-
-                    {/* Types */}
-                    {types.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                            {types.map((type, index) => (
-                                <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-omnes-semicond">
-                                    {type}
-                                </span>
-                            ))}
-                        </div>
-                    )}
-
-                    {/* Date */}
-                    {workshop.date && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">
-                                {new Date(workshop.date).toLocaleDateString('fr-FR')}
-                            </p>
-                        </div>
-                    )}
-
-                    {/* Duration */}
-                    {workshop.duration && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{workshop.duration}</p>
-                        </div>
-                    )}
-
-                    {/* Price */}
-                    {workshop.price && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{workshop.price}€</p>
-                        </div>
-                    )}
-
-                    {/* Location */}
-                    {workshop.location && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{workshop.location}</p>
-                        </div>
-                    )}
-
-                    {/* Description */}
-                    {workshop.shortDescription && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{workshop.shortDescription}</p>
-                        </div>
-                    )}
-
-                    {/* Long Description */}
-                    {workshop.longDescription && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{workshop.longDescription}</p>
-                        </div>
-                    )}
-
-                    {/* Requirements */}
-                    {workshop.requirements && (
-                        <div>
-                            <p className="text-gray-700 font-omnes-semicond">{workshop.requirements}</p>
-                        </div>
-                    )}
-                </div>
-                {/* Right Side - Images */}
-                <div className="space-y-4 w-full lg:w-4/10">
+            <div className="mx-auto max-w-[80%] py-24 flex flex-col-reverse gap-12 items-start">
+                {/* Images */}
+                <div className="flex-1 flex flex-col items-center gap-6 w-full">
                     {/* Thumbnail */}
                     {workshop.thumbnail && (
-                        <div className="relative w-full h-96 overflow-hidden">
+                        <div className="flex items-center justify-center w-full h-[600px]">
                             <Image
                                 src={workshop.thumbnail}
                                 alt={workshop.name}
-                                fill
-                                className="object-cover"
+                                width={900}
+                                height={600}
+                                className="object-contain max-h-full w-auto"
                             />
                         </div>
                     )}
-                    
-                    {/* Images Gallery */}
+
+                    {/* Gallery */}
                     {workshop.images && workshop.images.length > 0 && (
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="flex flex-col items-center gap-6 w-full">
                             {workshop.images.map((image, index) => (
-                                <div key={index} className="relative h-48 overflow-hidden">
+                                <div key={index} className="flex items-center justify-center w-full h-[600px]">
                                     <Image
                                         src={image}
                                         alt={`${workshop.name} - Image ${index + 1}`}
-                                        fill
-                                        className="object-cover"
+                                        width={900}
+                                        height={600}
+                                        className="object-contain max-h-full w-auto"
                                     />
                                 </div>
                             ))}
                         </div>
                     )}
                 </div>
+
+                {/* Infos */}
+                <div className="flex-1 flex flex-col h-full max-w-[900px] mx-auto">
+                    <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
+                        {/* Col gauche : titre + types */}
+                        <div className="space-y-4">
+                            <H1 noMt color="text-primary" align="text-left" title={workshop.name} />
+                            {types.length > 0 && (
+                                <div className="flex flex-wrap gap-2 mt-2">
+                                    {types.map((type, index) => (
+                                        <span
+                                            key={index}
+                                            className="px-3 py-1 bg-gray-100 rounded-full text-sm font-omnes-semicond"
+                                        >
+                                            {type}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Col droite : reste des infos */}
+                        <div className="space-y-4">
+                            {workshop.date && (
+                                <p className="font-medium font-omnes-semicond">
+                                    {new Date(workshop.date).toLocaleDateString('fr-FR')}
+                                </p>
+                            )}
+                            {workshop.duration && <p className="font-medium font-omnes-semicond">{workshop.duration}</p>}
+                            {workshop.price && <p className="font-medium font-omnes-semicond">{workshop.price}€</p>}
+                            {workshop.location && <p className="font-medium font-omnes-semicond">{workshop.location}</p>}
+                            {workshop.longDescription && <p>{workshop.longDescription}</p>}
+                            {workshop.requirements && <p className="italic">{workshop.requirements}</p>}
+                        </div>
+                    </section>
+                </div>
+
             </div>
             <NavigationArrows
                 prevItem={prevWorkshop ? { id: prevWorkshop._id.toString(), title: prevWorkshop.name } : null}

@@ -74,7 +74,6 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
             case 'workshop':
                 return [
                     { field: 'name', label: 'Nom', type: 'text', required: true },
-                    { field: 'shortDescription', label: 'Description courte', type: 'textarea', required: true },
                     { field: 'longDescription', label: 'Description longue', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
                     { field: 'orientation', label: 'Orientation', type: 'toggle', required: false },
