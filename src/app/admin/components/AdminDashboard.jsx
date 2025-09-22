@@ -34,11 +34,9 @@ const AdminDashboard = () => {
         workshops: [
             { field: 'thumbnail', label: 'Miniature' },
             { field: 'name', label: 'Nom' },
-            { field: 'instructor', label: 'Instructeur' },
             { field: 'type', label: 'Type' },
             { field: 'date', label: 'Date' },
             { field: 'price', label: 'Prix' },
-            { field: 'capacity', label: 'Capacité' },
             { field: 'images', label: 'Images' }
         ],
         users: [

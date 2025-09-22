@@ -104,9 +104,7 @@ const SingleProjectPage = async ({ params }) => {
                                     {new Date(project.date).getFullYear()}
                                 </p>
                             )}
-                            {project.shortDescription && <p>{project.shortDescription}</p>}
                             {project.description && <p>{project.description}</p>}
-                            {project.longDescription && <p className="italic">{project.longDescription}</p>}
                             {project.link && (
                                 <div>
                                     <h3

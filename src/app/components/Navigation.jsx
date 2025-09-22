@@ -2,7 +2,7 @@
 
 import TransitionLink from "../components/TransitionLink";
 import Image from "next/image";
-import Logo from "../../../public/logo-inline.png";
+import Logo from "../../../public/ptacik-logo.png";
 import { usePathname } from "next/navigation";
 
 const Navigation = ({ onLinkClick }) => {
@@ -19,11 +19,11 @@ const Navigation = ({ onLinkClick }) => {
     console.log("toto", navItems[1].href);
 
     return (
-        <nav className="flex flex-col gap-6">
+        <nav className="flex flex-col gap-4">
             <div className="flex justify-center items-center">
                 <TransitionLink
                     href="/"
-                    label={<Image src={Logo} alt="ceci est un logo" width={350} height={350} />}
+                    label={<Image src={Logo} alt="ceci est un logo" width={300} height={300} />}
                     onClick={onLinkClick}
                     centered={true}
                 />

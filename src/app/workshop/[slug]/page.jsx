@@ -104,11 +104,8 @@ const SingleWorkshopPage = async ({ params }) => {
                                     {new Date(workshop.date).toLocaleDateString('fr-FR')}
                                 </p>
                             )}
-                            {workshop.duration && <p className="font-medium font-omnes-semicond">{workshop.duration}</p>}
-                            {workshop.price && <p className="font-medium font-omnes-semicond">{workshop.price}€</p>}
                             {workshop.location && <p className="font-medium font-omnes-semicond">{workshop.location}</p>}
-                            {workshop.longDescription && <p>{workshop.longDescription}</p>}
-                            {workshop.requirements && <p className="italic">{workshop.requirements}</p>}
+                            {workshop.description && <p>{workshop.description}</p>}
                         </div>
                     </section>
                 </div>

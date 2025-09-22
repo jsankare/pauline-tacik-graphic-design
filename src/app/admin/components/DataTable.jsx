@@ -97,9 +97,6 @@ const DataTable = ({ data, columns, onEdit, onDelete, type }) => {
         if (field === 'duration' && typeof value === 'number') {
             return `${value} min`;
         }
-        if (field === 'capacity' && typeof value === 'number') {
-            return `${value} pers`;
-        }
         if (typeof value === 'string' && value.length > 30) {
             return (
                 <span className="hidden sm:inline">

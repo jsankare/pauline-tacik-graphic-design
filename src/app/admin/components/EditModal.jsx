@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { CloseIcon } from '@/app/components/icons';
 import ImageUpload from './ImageUpload';
-import Toggle from '@/app/components/layout/form/toggle';
 
 const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
     const [formData, setFormData] = useState({});
@@ -23,14 +22,6 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
         }));
     };
 
-    const handleToggleChange = (field, checked) => {
-        const value = checked ? 'Portrait' : 'Landscape';
-        setFormData(prev => ({
-            ...prev,
-            [field]: value
-        }));
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         
@@ -43,8 +34,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
         }
         
         // Convert numeric fields
-        if (processedData.price) processedData.price = parseFloat(processedData.price);
-        if (processedData.capacity) processedData.capacity = parseInt(processedData.capacity);
+        if (processedData.pages) processedData.pages = parseFloat(processedData.pages);
         
         // Remove empty password field for users if not changed
         if (type === 'user' && !processedData.password) {
@@ -62,30 +52,24 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                 return [
                     { field: 'title', label: 'Titre', type: 'text', required: true },
                     { field: 'description', label: 'Description', type: 'textarea', required: true },
-                    { field: 'shortDescription', label: 'Description courte', type: 'textarea', required: true },
-                    { field: 'longDescription', label: 'Description longue', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
-                    { field: 'orientation', label: 'Orientation', type: 'toggle', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },
                     { field: 'type', label: 'Types (séparés par des virgules)', type: 'textarea', required: false },
-                    { field: 'link', label: 'Lien', type: 'url', required: false }
+                    { field: 'link', label: 'Lien', type: 'url', required: false },
+                    { field: 'pages', label: 'Nombre de pages', type: 'number', required: false },
+                    { field: 'format', label: 'Format', type: 'text', required: false }
                 ];
             case 'workshop':
                 return [
                     { field: 'name', label: 'Nom', type: 'text', required: true },
-                    { field: 'longDescription', label: 'Description longue', type: 'textarea', required: true },
+                    { field: 'description', label: 'Description longue', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
-                    { field: 'orientation', label: 'Orientation', type: 'toggle', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },
                     { field: 'link', label: 'Lien', type: 'url', required: false },
-                    { field: 'duration', label: 'Durée', type: 'text', required: true },
-                    { field: 'price', label: 'Prix (€)', type: 'number', required: true },
                     { field: 'location', label: 'Lieu', type: 'text', required: true },
-                    { field: 'capacity', label: 'Capacité', type: 'number', required: true },
                     { field: 'type', label: 'Types (séparés par des virgules)', type: 'textarea', required: false },
-                    { field: 'requirements', label: 'Prérequis', type: 'textarea', required: false }
                 ];
             case 'user':
                 return [
@@ -102,24 +86,10 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
         const { field, label, type, required, options } = fieldConfig;
         const value = formData[field] || '';
 
-        if (type === 'toggle') {
-            const isPortrait = value === 'Portrait';
-            return (
-                <Toggle
-                    name="Orientation"
-                    description=""
-                    checked={isPortrait}
-                    onChange={(checked) => handleToggleChange(field, checked)}
-                    onLabel="Portrait"
-                    offLabel="Paysage"
-                />
-            );
-        }
-
         if (type === 'image') {
             return (
                 <ImageUpload
-                    label="Miniature / Thumbnail (1)"
+                    label="Miniature"
                     value={value}
                     onChange={(url) => handleInputChange(field, url)}
                     multiple={false}
