@@ -41,9 +41,9 @@ const WorkshopCard = ({ workshop, href }) => {
         )}
 
         {/* Image Overlay */}
-          <div className="absolute inset-0 hover:bg-secondary/85 flex items-end opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="absolute inset-0 hover:bg-secondary/85 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="p-4 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="text-white text-lg font-semibold text-center block drop-shadow-lg mb-2">
+            <span className="text-white text-lg font-semibold text-center block drop-shadow-lg">
               {workshop.name}
             </span>
           </div>

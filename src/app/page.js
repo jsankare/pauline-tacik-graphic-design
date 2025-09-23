@@ -24,8 +24,7 @@ const Homepage = async () => {
 
   return (
     <section className="flex flex-col py-30 px-10 gap-10 md:py-15">
-        <div/>
-      <H3 size="text-2xl" bold={false} color="text-primary" italic title="Designer graphique et illustratrice basée à Metz, je conçois avec vous des identités visuelles, supports imprimés et illustrations sur mesure." />
+      <H3 size="text-5xl" bold={false} color="text-primary" italic title="Designer graphique et illustratrice basée à Metz, je conçois avec vous des identités visuelles, supports imprimés et illustrations sur mesure." />
       
       <FilteredProjects projects={projects} />
     </section>
