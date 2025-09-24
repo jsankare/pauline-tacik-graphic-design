@@ -36,7 +36,6 @@ const AdminDashboard = () => {
             { field: 'name', label: 'Nom' },
             { field: 'type', label: 'Type' },
             { field: 'date', label: 'Date' },
-            { field: 'price', label: 'Prix' },
             { field: 'images', label: 'Images' }
         ],
         users: [

@@ -63,7 +63,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
             case 'workshop':
                 return [
                     { field: 'name', label: 'Nom', type: 'text', required: true },
-                    { field: 'description', label: 'Description longue', type: 'textarea', required: true },
+                    { field: 'description', label: 'Description', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
                     { field: 'date', label: 'Date', type: 'date', required: true },

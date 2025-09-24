@@ -21,7 +21,7 @@ const AboutPage = () => {
             <div className="max-w-6xl mx-auto px-6 py-20">
                 {/* Top Section - Title and Introduction */}
                 <div className="mb-16">
-                    <H1 color="text-primary" title="Pauline Tacik" align="text-left" />
+                    <H1 noMt color="text-primary" title="Pauline Tacik" align="text-left" />
                     <p className="text-xl text-primary italic mb-8 font-omnes-semicond">
                         Design graphique, illustration et gravure
                     </p>
@@ -31,7 +31,7 @@ const AboutPage = () => {
                             après des études en stratégie de communication, je travaille en tant qu'indépendante depuis 2019.
                         </p>
                         <p className="text-gray-900 font-omnes-semicond">
-                            Je conçois des supports imprimés, des identités visuelles ainsi que des illustrations.
+                          Je conçois des supports imprimés, des identités visuelles ainsi que des illustrations pour diverses structures, des très petites  et des grandes entreprises, ainsi que des associations et des collectivités .
                         </p>
                     </div>
                 </div>
@@ -57,12 +57,15 @@ const AboutPage = () => {
                         </h2>
                         <div className="space-y-4 text-lg leading-relaxed transition-transform duration-300 group-hover:scale-105">
                             <p className="text-gray-900 text-justify font-omnes-semicond">
-                                Je développe également un travail personnel, particulièrement
-                                de la linogravure et de la gravure sur tetrapak, et du papier.
+                              Je développe également un travail personnel autour  de l’estampe, plus particulièrement
+                              la linogravure et la gravure sur tetrapak, et du papier.
                             </p>
                             <p className="text-gray-900 text-justify font-omnes-semicond">
-                                Au fil de mon expérimentation, j'ai eu envie de partager ces pratiques et j'anime 
-                                régulièrement des ateliers, notamment à l'Échelle, céramique et cie.
+                              Au fil de mon expérimentation, j’ai eu envie de partager ces pratiques et j’anime
+                              régulièrement des ateliers pour les enfants et les adultes, notamment à
+                              <span className="text-primary" > l’Échelle</span>, <span className="text-primary" >Céramique
+                              et cie</span>,  en <span className="text-primary" >médiathèques</span> et
+                              <span className="text-primary" > centres culturels</span>, etc.
                             </p>
                         </div>
                     </div>

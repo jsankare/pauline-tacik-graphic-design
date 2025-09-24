@@ -90,10 +90,6 @@ const DataTable = ({ data, columns, onEdit, onDelete, type }) => {
                 </div>
             );
         }
-        
-        if (field === 'price' && typeof value === 'number') {
-            return `${value}€`;
-        }
         if (field === 'duration' && typeof value === 'number') {
             return `${value} min`;
         }
