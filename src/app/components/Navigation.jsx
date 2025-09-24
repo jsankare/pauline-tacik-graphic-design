@@ -15,9 +15,6 @@ const Navigation = ({ onLinkClick }) => {
         { href: "/contact", label: "Contact" }
     ];
 
-    console.log({pathname})
-    console.log("toto", navItems[1].href);
-
     return (
         <nav className="flex flex-col gap-4">
             <div className="flex justify-center items-center md:mt-26">

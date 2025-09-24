@@ -5,6 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Illustration from "../../../public/gravure-eblouie.jpg"
 import TransitionLink from "../components/TransitionLink";
+import Dot from "../../../public/pois.png"
 
 const AboutPage = () => {
     const [cvDownloaded, setCvDownloaded] = useState(false);
@@ -69,17 +70,37 @@ const AboutPage = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-8 lg:gap-12 mb-16 text-center">
                     {/* Row 1 */}
-                    <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
-                            identités visuelles
-                        </h3>
+                    <div className="space-y-4 group transition-transform duration-300 hover:scale-105 relative">
+                      <h3
+                        className="relative text-2xl m-auto mb-6 max-w-3/4 font-bold leading-tight text-balance text-primary"
+                        style={{ fontFamily: 'var(--font-aracau)' }}
+                      >
+                        <span className="relative z-10">identités visuelles</span>
+                        <Image
+                          src={Dot}
+                          alt="decoration Dot"
+                          width={50}
+                          height={50}
+                          className="absolute -top-6 left-3/5 -translate-x-1/2 z-0 md:left-auto md:translate-x-0 md:right-28 lg:right-3"
+                        />
+                      </h3>
                         <p className="text-gray-900 font-omnes-semicond">Logos, chartes graphiques</p>
                     </div>
                     <div className="hidden lg:block"></div> {/* empty */}
                     <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
-                            illustrations & gravures
-                        </h3>
+                      <h3
+                        className="relative text-2xl m-auto mb-6 max-w-3/4 font-bold leading-tight text-balance text-primary"
+                        style={{ fontFamily: 'var(--font-aracau)' }}
+                      >
+                        <span className="relative z-10">illustration & gravure</span>
+                        <Image
+                          src={Dot}
+                          alt="decoration Dot"
+                          width={50}
+                          height={50}
+                          className="absolute -top-6 right-1/2 -translate-x-1/2 z-0 md:left-auto md:translate-x-0 md:right-58 lg:right-14"
+                        />
+                      </h3>
                         <p className="text-gray-900 font-omnes-semicond">Créations sur mesure</p>
                     </div>
                     <div className="hidden lg:block"></div> {/* empty */}
@@ -87,16 +108,36 @@ const AboutPage = () => {
                     {/* Row 2 */}
                     <div className="hidden lg:block"></div> {/* empty */}
                     <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
-                            supports imprimés
-                        </h3>
-                        <p className="text-gray-900 font-omnes-semicond">Brochures, affiches, cartes</p>
+                      <h3
+                        className="relative text-2xl m-auto mb-6 max-w-3/4 font-bold leading-tight text-balance text-primary"
+                        style={{ fontFamily: 'var(--font-aracau)' }}
+                      >
+                        <span className="relative z-10">supports imprimés</span>
+                        <Image
+                          src={Dot}
+                          alt="decoration Dot"
+                          width={50}
+                          height={50}
+                          className="absolute -bottom-6 right-3/5 -translate-x-1/2 z-0 md:translate-x-0 md:left-28 lg:left-0"
+                        />
+                      </h3>
+                      <p className="text-gray-900 font-omnes-semicond">Brochures, affiches, cartes</p>
                     </div>
                     <div className="hidden lg:block"></div> {/* empty */}
                     <div className="space-y-4 group transition-transform duration-300 hover:scale-105">
-                        <h3 className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
-                            ateliers tous publics
-                        </h3>
+                      <h3
+                        className="relative text-2xl m-auto mb-6 max-w-3/4 font-bold leading-tight text-balance text-primary"
+                        style={{ fontFamily: 'var(--font-aracau)' }}
+                      >
+                        <span className="relative z-10">ateliers tous publics</span>
+                        <Image
+                          src={Dot}
+                          alt="decoration Dot"
+                          width={50}
+                          height={50}
+                          className="absolute -bottom-4 right-1/5 -translate-x-1/2 z-0 md:left-auto md:translate-x-0 md:right-26 lg:-right-2"
+                        />
+                      </h3>
                         <p className="text-gray-900 font-omnes-semicond">Partage de pratiques artistiques</p>
                     </div>
                 </div>
