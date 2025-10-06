@@ -17,7 +17,7 @@ const Navigation = ({ onLinkClick }) => {
 
     return (
         <nav className="flex flex-col gap-4">
-            <div className="flex justify-center items-center md:mt-26">
+            <div className="flex justify-center items-center md:mt-45">
                 <TransitionLink
                     href="/"
                     label={<Image src={Logo} alt="ceci est un logo" width={300} height={300} />}

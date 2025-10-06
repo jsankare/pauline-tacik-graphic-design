@@ -3,8 +3,8 @@ import TransitionLink from "./TransitionLink";
 
 const Footer = () => {
     return (
-        <footer className="w-full h-20 shrink-0 p-5 font-omnes-semicond">
-            <section className="w-full mx-auto flex flex-col-reverse gap-4 md:flex-row justify-between pb-3">
+        <footer className="w-full shrink-0 font-omnes-semicond p-4">
+            <section className="w-full mx-auto flex flex-col-reverse gap-4 md:flex-row justify-between">
                 <div className="text-center md:text-left">
                     <p className="text-center md:text-left text-primary/60 font-omnes-semicond">
                         &copy; 2020 - {new Date().getFullYear()} Pauline Tacik. Tous droits réservés.
@@ -14,23 +14,15 @@ const Footer = () => {
                     </p>
                 </div>
                 <div>
-                    <div className="text-center text-sm mt-2 flex flex-col">
-                        <TransitionLink
+                    <div className="text-center flex flex-col">
+                        <a
                             href="/privacy-policy"
-                            label={
-                                <span className="text-lg text-primary/60 hover:text-primary/80 transition-colors duration-200 font-omnes-semicond">
-                                Politique de confidentialité
-                            </span>
-                            }
-                        />
-                        <TransitionLink
+                            className="text-center md:text-right text-primary/60 font-omnes-semicond"
+                        >Politique de confidentialité</a>
+                        <a
                             href="/legals"
-                            label={
-                                <span className="text-lg text-primary/60 hover:text-primary/80 transition-colors duration-200 font-omnes-semicond">
-                                Mentions légales
-                            </span>
-                            }
-                        />
+                            className="text-center md:text-right text-primary/60 font-omnes-semicond"
+                        >Mentions légales</a>
                     </div>
                 </div>
             </section>

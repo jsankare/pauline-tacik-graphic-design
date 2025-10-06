@@ -78,7 +78,7 @@ const SingleWorkshopPage = async ({ params }) => {
                 </div>
 
                 {/* Infos */}
-                <div className="flex-1 flex flex-col h-full max-w-[900px] mx-auto">
+                <div className="flex-1 flex flex-col h-full justify-between w-full mx-auto max-w-[900px]">
                     <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
                         {/* Col gauche : titre + types */}
                         <div className="space-y-4">
@@ -98,10 +98,10 @@ const SingleWorkshopPage = async ({ params }) => {
                         </div>
 
                         {/* Col droite : reste des infos */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 text-right">
                             {workshop.date && (
                                 <p className="font-medium font-omnes-semicond">
-                                    {new Date(workshop.date).toLocaleDateString('fr-FR')}
+                                    {workshop.date}
                                 </p>
                             )}
                             {workshop.location && <p className="font-medium font-omnes-semicond">{workshop.location}</p>}
@@ -109,13 +109,14 @@ const SingleWorkshopPage = async ({ params }) => {
                         </div>
                     </section>
                 </div>
-
             </div>
-            <NavigationArrows
-                prevItem={prevWorkshop ? { id: prevWorkshop._id.toString(), title: prevWorkshop.name } : null}
-                nextItem={nextWorkshop ? { id: nextWorkshop._id.toString(), title: nextWorkshop.name } : null}
-                basePath="/workshop"
-            />
+            <div className="max-w-[900px] mx-auto" >
+                <NavigationArrows
+                    prevItem={prevWorkshop ? { id: prevWorkshop._id.toString(), title: prevWorkshop.name } : null}
+                    nextItem={nextWorkshop ? { id: nextWorkshop._id.toString(), title: nextWorkshop.name } : null}
+                    basePath="/workshop"
+                />
+            </div>
         </div>
     );
 };

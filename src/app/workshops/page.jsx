@@ -13,7 +13,7 @@ const WorkshopsPage = async () => {
         workshops = rawWorkshops.map(workshop => ({
             ...workshop,
             _id: workshop._id.toString(),
-            date: workshop.date ? new Date(workshop.date).toISOString() : null,
+            date: workshop.date || null,
             createdAt: workshop.createdAt ? new Date(workshop.createdAt).toISOString() : null,
             updatedAt: workshop.updatedAt ? new Date(workshop.updatedAt).toISOString() : null,
         }));

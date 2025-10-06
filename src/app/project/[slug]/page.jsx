@@ -42,8 +42,8 @@ const SingleProjectPage = async ({ params }) => {
     const types = project.type ? project.type.split(',').map(type => type.trim()).filter(Boolean) : [];
 
     return (
-        <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
-            <div className="mx-auto max-w-[80%] py-24 flex flex-col-reverse gap-12 items-start">
+        <div className="mx-auto my-auto h-full text-primary font-omnes-semicond">
+            <div className="mx-auto max-w-[80%] py-20 flex flex-col-reverse gap-12 items-start">
                 {/* Images */}
                 <div className="flex-1 flex flex-col items-center gap-6 w-full">
                     {/* Thumbnail */}
@@ -78,7 +78,7 @@ const SingleProjectPage = async ({ params }) => {
                 </div>
 
                 {/* Infos */}
-                <div className="flex-1 flex flex-col h-full max-w-[900px] mx-auto">
+                <div className="flex-1 flex flex-col h-full justify-between w-full mx-auto max-w-[900px]">
                     <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
                     {/* Col gauche : titre + types */}
                         <div className="space-y-4">
@@ -98,21 +98,15 @@ const SingleProjectPage = async ({ params }) => {
                         </div>
 
                         {/* Col droite : reste des infos */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 text-right">
                             {project.date && (
                                 <p className="font-medium font-omnes-semicond">
-                                    {new Date(project.date).getFullYear()}
+                                    {project.date}
                                 </p>
                             )}
                             {project.description && <p>{project.description}</p>}
                             {project.link && (
                                 <div>
-                                    <h3
-                                        className="font-semibold mb-1"
-                                        style={{ fontFamily: 'var(--font-aracau)' }}
-                                    >
-                                        Lien
-                                    </h3>
                                     <a
                                         href={project.link}
                                         target="_blank"
@@ -128,11 +122,13 @@ const SingleProjectPage = async ({ params }) => {
                 </div>
 
             </div>
-            <NavigationArrows
-                prevItem={prevProject ? { id: prevProject._id.toString(), title: prevProject.title } : null}
-                nextItem={nextProject ? { id: nextProject._id.toString(), title: nextProject.title } : null}
-                basePath="/project"
-            />
+            <div className="max-w-[900px] mx-auto" >
+                <NavigationArrows
+                    prevItem={prevProject ? { id: prevProject._id.toString(), title: prevProject.title } : null}
+                    nextItem={nextProject ? { id: nextProject._id.toString(), title: nextProject.title } : null}
+                    basePath="/project"
+                />
+            </div>
         </div>
     );
 };

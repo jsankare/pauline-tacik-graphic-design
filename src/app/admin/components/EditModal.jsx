@@ -29,10 +29,10 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
         const processedData = { ...formData };
         
         // Convert date string to Date object
-        if (processedData.date && typeof processedData.date === 'string') {
-            processedData.date = new Date(processedData.date);
-        }
-        
+        // if (processedData.date && typeof processedData.date === 'string') {
+        //     processedData.date = new Date(processedData.date);
+        // }
+        //
         // Convert numeric fields
         if (processedData.pages) processedData.pages = parseFloat(processedData.pages);
         
@@ -54,7 +54,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'description', label: 'Description', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
-                    { field: 'date', label: 'Date', type: 'date', required: true },
+                    { field: 'date', label: 'Date', type: 'text', required: true },
                     { field: 'type', label: 'Types (séparés par des virgules)', type: 'textarea', required: false },
                     { field: 'link', label: 'Lien', type: 'url', required: false },
                     { field: 'pages', label: 'Nombre de pages', type: 'number', required: false },
@@ -66,7 +66,7 @@ const EditModal = ({ isOpen, onClose, item, onSave, type }) => {
                     { field: 'description', label: 'Description', type: 'textarea', required: true },
                     { field: 'thumbnail', label: 'Miniature', type: 'image', required: false },
                     { field: 'images', label: 'Images', type: 'imageArray', required: false },
-                    { field: 'date', label: 'Date', type: 'date', required: true },
+                    { field: 'date', label: 'Date', type: 'text', required: true },
                     { field: 'link', label: 'Lien', type: 'url', required: false },
                     { field: 'location', label: 'Lieu', type: 'text', required: true },
                     { field: 'type', label: 'Types (séparés par des virgules)', type: 'textarea', required: false },

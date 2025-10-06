@@ -50,13 +50,13 @@ export const H2 = ({
 };
 
 export const H3 = ({
-                    title,
-                    color = "text-black",
-                    align = "text-left",
-                    italic = false,
-                    bold = true,
-                    size = "text-xl",
-                }) => {
+                title,
+                color = "text-black",
+                align = "text-left",
+                italic = false,
+                bold = true,
+                size = "text-xl",
+                    }) => {
     return (
         <h3
             className={`

@@ -12,11 +12,11 @@ const Homepage = async () => {
     
     // Convert MongoDB objects to plain JavaScript objects
     projects = rawProjects.map(project => ({
-      ...project,
-      _id: project._id.toString(),
-      date: project.date ? new Date(project.date).toISOString() : null,
-      createdAt: project.createdAt ? new Date(project.createdAt).toISOString() : null,
-      updatedAt: project.updatedAt ? new Date(project.updatedAt).toISOString() : null,
+        ...project,
+        _id: project._id.toString(),
+        date: project.date || null,
+        createdAt: project.createdAt ? new Date(project.createdAt).toISOString() : null,
+        updatedAt: project.updatedAt ? new Date(project.updatedAt).toISOString() : null,
     }));
   } catch (error) {
     console.log('Error fetching projects:', error);
@@ -24,7 +24,14 @@ const Homepage = async () => {
 
   return (
     <section className="flex flex-col py-30 px-10 gap-10 md:py-15">
-      <H3 size="text-5xl" bold={false} color="text-primary" italic title="Designer graphique et illustratrice basée à Metz, je conçois avec vous des identités visuelles, supports imprimés et illustrations sur mesure." />
+      <H3
+          size="text-5xl"
+          bold={false}
+          italic
+          color="text-primary"
+
+          title="Designer graphique et illustratrice basée à Metz, je conçois avec vous des identités visuelles, supports imprimés et illustrations sur mesure."
+      />
       
       <FilteredProjects projects={projects} />
     </section>
