@@ -49,6 +49,32 @@ export const H2 = ({
     );
 };
 
+export const MainTitle = ({
+                       title,
+                       color = "text-black",
+                       align = "text-left",
+                       italic = false,
+                       bold = true,
+                       size = "text-xl",
+                   }) => {
+    return (
+        <h3
+            className={`
+        font-thin
+        mt-5
+        ${color}
+        ${align}
+        ${italic ? "italic" : ""}
+        ${bold ? "font-bold" : "font-normal"}
+        ${size}
+        `}
+            // style={{fontFamily: 'var(--font-aracau)'}}
+        >
+            {title}
+        </h3>
+    );
+};
+
 export const H3 = ({
                 title,
                 color = "text-black",

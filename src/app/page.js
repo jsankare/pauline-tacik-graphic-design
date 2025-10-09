@@ -1,6 +1,8 @@
-import { H3 } from "./components/ui/ui";
+import { MainTitle } from "./components/ui/ui";
 import clientPromise from "@/lib/mongodb";
 import FilteredProjects from "./components/FilteredProjects";
+
+export const dynamic = 'force-dynamic';
 
 const Homepage = async () => {
   // Fetch projects from MongoDB
@@ -23,8 +25,8 @@ const Homepage = async () => {
   }
 
   return (
-    <section className="flex flex-col py-30 px-10 gap-10 md:py-15">
-      <H3
+    <section className="flex flex-col py-30 px-10 gap-8 md:py-15">
+      <MainTitle
           size="text-5xl"
           bold={false}
           italic

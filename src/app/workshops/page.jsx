@@ -1,6 +1,8 @@
-import { H1 } from "../components/ui/ui";
+import {H1, H3} from "../components/ui/ui";
 import clientPromise from "@/lib/mongodb";
 import FilteredWorkshops from "../components/FilteredWorkshops";
+
+export const dynamic = 'force-dynamic';
 
 const WorkshopsPage = async () => {
     // Fetch workshops from MongoDB
@@ -22,8 +24,15 @@ const WorkshopsPage = async () => {
     }
 
     return (
-        <section className="p-4">
-            <H1 title="Ateliers" />
+        <section className="flex flex-col py-30 px-10 gap-8 md:py-15">
+            <H3
+                size="text-5xl"
+                bold={false}
+                italic
+                color="text-primary"
+
+                title="Ateliers"
+            />
             
             <FilteredWorkshops workshops={workshops} />
         </section>
