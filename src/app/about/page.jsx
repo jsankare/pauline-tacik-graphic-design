@@ -11,18 +11,17 @@ const AboutPage = () => {
     return (
         <div className="min-h-screen bg-white font-omnes-semicond">
             <div className="max-w-6xl mx-auto px-6 py-20">
-                {/* Top Section - Title and Introduction */}
-                <div className="mb-16">
-                    <H1 noMt color="text-primary" title="Pauline Tacik" align="text-left" />
-                    <p className="text-xl text-primary italic mb-8 font-omnes-semicond">
-                        Design graphique, illustration et gravure
-                    </p>
-                </div>
-
                 {/* Middle Section - Text & Illustration Side by Side */}
                 <div className="flex flex-col lg:flex-row items-center gap-12 mb-20">
                     {/* Left Column - Text */}
                     <div className="flex-1 space-y-6 text-lg leading-relaxed">
+                        {/* Top Section - Title and Introduction */}
+                        <div className="mb-10">
+                            <H1 noMt color="text-primary" title="Pauline Tacik" align="text-left" />
+                            <p className="text-xl text-primary italic mb-8 font-omnes-semicond">
+                                Design graphique, illustration et gravure
+                            </p>
+                        </div>
                         <p className="text-gray-900 font-omnes-semicond">
                             Diplômée d'un bachelor en Design graphique, options médias imprimés à l'École de Condé (Nancy)
                             après des études en stratégie de communication, je travaille en tant qu'indépendante depuis 2019.
@@ -47,7 +46,7 @@ const AboutPage = () => {
                     </div>
 
                     {/* Right Column - Illustration */}
-                    <div className="flex-1 w-full h-96 lg:h-[500px] relative group">
+                    <div className="flex-1 w-full h-96 lg:h-[600px] relative group">
                         <Image
                             src={Illustration}
                             alt="Pauline Tacik - Illustration personnelle"
