@@ -41,6 +41,8 @@ const SingleWorkshopPage = async ({ params }) => {
     // Parse types
     const types = workshop.type ? workshop.type.split(',').map(type => type.trim()).filter(Boolean) : [];
 
+    console.log(workshop);
+
     return (
         <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
             <div className="mx-auto max-w-[80%] py-24 flex flex-col-reverse gap-12 items-start">
@@ -48,8 +50,8 @@ const SingleWorkshopPage = async ({ params }) => {
                 <div className="flex-1 flex flex-col items-center gap-6 w-full">
                     {/* Thumbnail */}
                     {workshop.thumbnail && (
-                        <div className="flex items-center justify-center w-full h-[600px]">
-                            <Image
+                        <div className="flex items-center justify-center w-full h-[200px] md:h-[600px]">
+                        <Image
                                 src={workshop.thumbnail}
                                 alt={workshop.name}
                                 width={900}
@@ -63,7 +65,7 @@ const SingleWorkshopPage = async ({ params }) => {
                     {workshop.images && workshop.images.length > 0 && (
                         <div className="flex flex-col items-center gap-6 w-full">
                             {workshop.images.map((image, index) => (
-                                <div key={index} className="flex items-center justify-center w-full h-[600px]">
+                                <div key={index} className="flex items-center justify-center w-full h-[200px] md:h-[600px]">
                                     <Image
                                         src={image}
                                         alt={`${workshop.name} - Image ${index + 1}`}

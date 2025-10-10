@@ -41,6 +41,8 @@ const SingleProjectPage = async ({ params }) => {
     // Parse types
     const types = project.type ? project.type.split(',').map(type => type.trim()).filter(Boolean) : [];
 
+    console.log(project);
+
     return (
         <div className="mx-auto my-auto h-full text-primary font-omnes-semicond">
             <div className="mx-auto max-w-[80%] py-20 flex flex-col-reverse gap-12 items-start">
@@ -83,6 +85,8 @@ const SingleProjectPage = async ({ params }) => {
                     {/* Col gauche : titre + types */}
                         <div className="space-y-4">
                             <H1 noMt color="text-primary" align="text-left" title={project.title} />
+                            <p>{project.format}</p>
+                            <span>{project.pages} {project.pages === 1 ? "page" : "pages"}</span>
                             {types.length > 0 && (
                                 <div className="flex flex-wrap gap-2 mt-2">
                                     {types.map((type, index) => (
@@ -98,9 +102,9 @@ const SingleProjectPage = async ({ params }) => {
                         </div>
 
                         {/* Col droite : reste des infos */}
-                        <div className="space-y-4 text-right">
+                        <div className="space-y-4">
                             {project.date && (
-                                <p className="font-medium font-omnes-semicond">
+                                <p className="font-medium font-omnes-semicond text-right">
                                     {project.date}
                                 </p>
                             )}

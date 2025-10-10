@@ -10,7 +10,7 @@ const Homepage = async () => {
   try {
     const client = await clientPromise;
     const db = client.db();
-    const rawProjects = await db.collection('projects').find({}).toArray();
+    const rawProjects = await db.collection('projects').find({}).sort({ createdAt: -1 }).toArray();
     
     // Convert MongoDB objects to plain JavaScript objects
     projects = rawProjects.map(project => ({

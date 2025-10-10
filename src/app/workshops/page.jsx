@@ -10,7 +10,7 @@ const WorkshopsPage = async () => {
     try {
         const client = await clientPromise;
         const db = client.db();
-        const rawWorkshops = await db.collection('workshops').find({}).toArray();
+        const rawWorkshops = await db.collection('workshops').find({}).sort({ createdAt: -1 }).toArray();
 
         workshops = rawWorkshops.map(workshop => ({
             ...workshop,
