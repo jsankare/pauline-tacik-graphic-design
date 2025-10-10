@@ -24,7 +24,7 @@ const WorkshopsPage = async () => {
     }
 
     return (
-        <section className="flex flex-col py-30 px-10 gap-8 md:py-15">
+        <section className="flex flex-col px-10 gap-8 md:py-15">
             <H3
                 size="text-5xl"
                 bold={false}
