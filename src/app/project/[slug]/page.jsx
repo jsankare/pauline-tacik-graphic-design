@@ -100,12 +100,12 @@ const SingleProjectPage = async ({ params }) => {
                                         ))}
                                     </div>
                                 )}
-                                {project.date && (
-                                    <p className="font-medium font-omnes-semicond text-primary/75">
-                                        {project.date}
-                                    </p>
-                                )}
                             </div>
+                            {project.date && (
+                                <p className="font-medium font-omnes-semicond text-primary/75">
+                                    {project.date}
+                                </p>
+                            )}
                             <div className="flex flex-col gap-1">
                                 <p>{project.format}</p>
                                 <span>{project.pages} {project.pages === 1 ? "page" : "pages"}</span>

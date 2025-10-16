@@ -100,12 +100,12 @@ const SingleWorkshopPage = async ({ params }) => {
                                         ))}
                                     </div>
                                 )}
-                                {workshop.date && (
-                                    <p className="font-medium font-omnes-semicond text-primary/75">
-                                        {workshop.date}
-                                    </p>
-                                )}
                             </div>
+                            {workshop.date && (
+                                <p className="font-medium font-omnes-semicond text-primary/75">
+                                    {workshop.date}
+                                </p>
+                            )}
                             {workshop.location && <p className="font-medium font-omnes-semicond">{workshop.location}</p>}
                             {workshop.description && <p className="text-gray-800">{workshop.description}</p>}
                         </div>
