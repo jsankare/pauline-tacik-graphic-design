@@ -41,8 +41,6 @@ const SingleWorkshopPage = async ({ params }) => {
     // Parse types
     const types = workshop.type ? workshop.type.split(',').map(type => type.trim()).filter(Boolean) : [];
 
-    console.log(workshop);
-
     return (
         <div className="mx-auto my-auto h-full p-4 text-primary font-omnes-semicond">
             <div className="mx-auto max-w-[80%] py-24 flex flex-col-reverse gap-12 items-start">
@@ -85,29 +83,31 @@ const SingleWorkshopPage = async ({ params }) => {
                         {/* Col gauche : titre + types */}
                         <div className="space-y-4">
                             <H1 noMt color="text-primary" align="text-left" title={workshop.name} />
-                            {types.length > 0 && (
-                                <div className="flex flex-wrap gap-2 mt-2">
-                                    {types.map((type, index) => (
-                                        <span
-                                            key={index}
-                                            className="px-3 py-1 bg-gray-100 rounded-full text-sm font-omnes-semicond"
-                                        >
-                                            {type}
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
                         </div>
 
                         {/* Col droite : reste des infos */}
-                        <div className="space-y-4 text-right">
-                            {workshop.date && (
-                                <p className="font-medium font-omnes-semicond">
-                                    {workshop.date}
-                                </p>
-                            )}
+                        <div className="space-y-4 text-left">
+                            <div className="flex flex-col gap-1">
+                                {types.length > 0 && (
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {types.map((type, index) => (
+                                            <span
+                                                key={index}
+                                                className="px-3 py-1 border border-primary/75 rounded-full text-sm font-omnes-semicond text-primary/75"
+                                            >
+                                            {type}
+                                        </span>
+                                        ))}
+                                    </div>
+                                )}
+                                {workshop.date && (
+                                    <p className="font-medium font-omnes-semicond text-primary/75">
+                                        {workshop.date}
+                                    </p>
+                                )}
+                            </div>
                             {workshop.location && <p className="font-medium font-omnes-semicond">{workshop.location}</p>}
-                            {workshop.description && <p>{workshop.description}</p>}
+                            {workshop.description && <p className="text-gray-800">{workshop.description}</p>}
                         </div>
                     </section>
                 </div>
