@@ -1,10 +1,24 @@
-"use client";
-
 import { H1 } from "../components/ui/ui";
 import Image from "next/image";
 import Illustration from "../../../public/gravure-eblouie.jpg";
 import TransitionLink from "../components/TransitionLink";
 import Dot from "../../../public/pois.png";
+
+export const metadata = {
+    title: "À propos | Pauline Tacik — Designer graphique & illustratrice",
+    description: "Découvrez le parcours et l'univers de Pauline Tacik, designer graphique, illustratrice et graveuse basée à Metz.",
+    openGraph: {
+        title: "À propos | Pauline Tacik",
+        description: "Designer graphique, illustratrice et graveuse basée à Metz.",
+        images: [{ url: "/ptacik-logo.png" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "À propos | Pauline Tacik",
+        description: "Designer graphique, illustratrice et graveuse basée à Metz.",
+        images: ["/ptacik-logo.png"],
+    },
+};
 
 const AboutPage = () => {
 

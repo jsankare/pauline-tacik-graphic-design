@@ -1,3 +1,19 @@
+export const metadata = {
+    title: "Mentions légales & CGU | Pauline Tacik",
+    description: "Mentions légales du site paulinetacik.com, conditions générales d’utilisation et informations d’hébergement.",
+    openGraph: {
+        title: "Mentions légales & CGU | Pauline Tacik",
+        description: "Mentions légales, CGU et informations d’hébergement.",
+        images: [{ url: "/ptacik-logo.png" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Mentions légales & CGU | Pauline Tacik",
+        description: "Mentions légales, CGU et informations d’hébergement.",
+        images: ["/ptacik-logo.png"],
+    },
+};
+
 export default function Legals() {
     return (
         <main className="text-gray-800 antialiased leading-relaxed max-w-4xl mx-auto p-6 md:p-12">

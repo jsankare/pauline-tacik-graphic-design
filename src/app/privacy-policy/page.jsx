@@ -1,3 +1,19 @@
+export const metadata = {
+    title: "Politique de confidentialité | Pauline Tacik",
+    description: "Politique de confidentialité du site paulinetacik.com : données collectées, finalités, droits RGPD et contact.",
+    openGraph: {
+        title: "Politique de confidentialité | Pauline Tacik",
+        description: "Données collectées, finalités, droits RGPD et contact.",
+        images: [{ url: "/ptacik-logo.png" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Politique de confidentialité | Pauline Tacik",
+        description: "Données collectées, finalités, droits RGPD et contact.",
+        images: ["/ptacik-logo.png"],
+    },
+};
+
 export default function Confidentialite() {
     return (
         <div className="max-w-3xl mx-auto px-6 py-12 text-gray-800 leading-relaxed">

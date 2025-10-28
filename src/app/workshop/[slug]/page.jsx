@@ -5,6 +5,41 @@ import clientPromise from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 import NavigationArrows from '../../components/NavigationArrows';
 
+export async function generateMetadata({ params }) {
+    const workshopId = params.slug;
+    try {
+        if (!ObjectId.isValid(workshopId)) return {};
+        const client = await clientPromise;
+        const db = client.db();
+        const workshop = await db.collection('workshops').findOne({ _id: new ObjectId(workshopId) });
+        if (!workshop) return {};
+        const title = workshop.name ? `${workshop.name} — Atelier | Pauline Tacik` : 'Atelier — Pauline Tacik';
+        const description = workshop.description || "Découvrez un atelier par Pauline Tacik: gravure, illustration et design.";
+        const ogImage = workshop.thumbnail || "/ptacik-logo.png";
+        const url = `${process.env.NEXT_PUBLIC_SITE_URL || ''}/workshop/${workshop._id.toString()}`;
+        return {
+            title,
+            description,
+            alternates: { canonical: url },
+            openGraph: {
+                title,
+                description,
+                url,
+                type: 'article',
+                images: ogImage ? [{ url: ogImage }] : [],
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title,
+                description,
+                images: ogImage ? [ogImage] : [],
+            },
+        };
+    } catch (e) {
+        return {};
+    }
+}
+
 const SingleWorkshopPage = async ({ params }) => {
     const workshopId = params.slug;
 

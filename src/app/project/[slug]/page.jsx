@@ -5,6 +5,41 @@ import clientPromise from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 import NavigationArrows from '../../components/NavigationArrows';
 
+export async function generateMetadata({ params }) {
+    const projectId = params.slug;
+    try {
+        if (!ObjectId.isValid(projectId)) return {};
+        const client = await clientPromise;
+        const db = client.db();
+        const project = await db.collection('projects').findOne({ _id: new ObjectId(projectId) });
+        if (!project) return {};
+        const title = project.title ? `${project.title} — Projet | Pauline Tacik` : 'Projet — Pauline Tacik';
+        const description = project.description || "Découvrez ce projet de design graphique et illustration par Pauline Tacik.";
+        const ogImage = project.thumbnail || "/ptacik-logo.png";
+        const url = `${process.env.NEXT_PUBLIC_SITE_URL || ''}/project/${project._id.toString()}`;
+        return {
+            title,
+            description,
+            alternates: { canonical: url },
+            openGraph: {
+                title,
+                description,
+                url,
+                type: 'article',
+                images: ogImage ? [{ url: ogImage }] : [],
+            },
+            twitter: {
+                card: 'summary_large_image',
+                title,
+                description,
+                images: ogImage ? [ogImage] : [],
+            },
+        };
+    } catch (e) {
+        return {};
+    }
+}
+
 const SingleProjectPage = async ({ params }) => {
     const projectId = params.slug;
 
