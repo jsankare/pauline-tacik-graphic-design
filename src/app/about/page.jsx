@@ -29,9 +29,6 @@ const AboutPage = () => {
                         <p className="text-gray-900 font-omnes-semicond">
                             Je conçois des supports imprimés, des identités visuelles ainsi que des illustrations pour diverses structures, des très petites et des grandes entreprises, ainsi que des associations et des collectivités.
                         </p>
-                        <h2 className="text-3xl font-bold text-primary" style={{ fontFamily: 'var(--font-aracau)' }}>
-                            Pratique personnelle
-                        </h2>
                         <p className="text-gray-900 text-justify font-omnes-semicond">
                             Je développe également un travail personnel autour de l’estampe, plus particulièrement
                             la linogravure et la gravure sur tetrapak, et du papier.

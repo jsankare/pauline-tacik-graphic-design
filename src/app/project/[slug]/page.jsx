@@ -101,6 +101,7 @@ const SingleProjectPage = async ({ params }) => {
                                     </div>
                                 )}
                             </div>
+                            {project.description && <p className="text-gray-800">{project.description}</p>}
                             {project.date && (
                                 <p className="font-medium font-omnes-semicond text-primary/75">
                                     {project.date}
@@ -108,7 +109,9 @@ const SingleProjectPage = async ({ params }) => {
                             )}
                             <div className="flex flex-col gap-1">
                                 <p>{project.format}</p>
-                                <span>{project.pages} {project.pages === 1 ? "page" : "pages"}</span>
+                                {(project.pages && project.pages > 0) &&
+                                    <span>{project.pages} {project.pages === 1 ? "page" : "pages"}</span>
+                                }
                             </div>
                             {project.link && (
                                 <div>
@@ -122,7 +125,6 @@ const SingleProjectPage = async ({ params }) => {
                                     </a>
                                 </div>
                             )}
-                            {project.description && <p className="text-gray-800">{project.description}</p>}
                         </div>
                     </section>
                 </div>
