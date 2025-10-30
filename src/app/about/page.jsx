@@ -5,17 +5,17 @@ import TransitionLink from "../components/TransitionLink";
 import Dot from "../../../public/pois.png";
 
 export const metadata = {
-    title: "À propos | Pauline Tacik — Designer graphique & illustratrice",
-    description: "Découvrez le parcours et l'univers de Pauline Tacik, designer graphique, illustratrice et graveuse basée à Metz.",
+    title: "À propos — Graphiste freelance à Metz | Pauline Tacik",
+    description: "Parcours et approche de Pauline Tacik, graphiste freelance à Metz. Graphisme, illustration et gravure pour petites et grandes entreprises : identité visuelle, logo, affiches, flyers, cartes de visite et édition. Interventions à Metz, Nancy et Luxembourg.",
     openGraph: {
-        title: "À propos | Pauline Tacik",
-        description: "Designer graphique, illustratrice et graveuse basée à Metz.",
+        title: "À propos — Graphiste freelance à Metz | Pauline Tacik",
+        description: "Graphisme, illustration et supports de communication pour entreprises et associations. Basée à Metz, active à Nancy et Luxembourg.",
         images: [{ url: "/ptacik-logo.png" }],
     },
     twitter: {
         card: "summary_large_image",
-        title: "À propos | Pauline Tacik",
-        description: "Designer graphique, illustratrice et graveuse basée à Metz.",
+        title: "À propos — Pauline Tacik, graphiste et illustratrice",
+        description: "Graphiste freelance à Metz : identité visuelle, illustration, gravure, supports imprimés.",
         images: ["/ptacik-logo.png"],
     },
 };

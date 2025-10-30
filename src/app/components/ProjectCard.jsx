@@ -32,7 +32,7 @@ const ProjectCard = ({ project, href }) => {
           <Image
             fill
             alt={project.title}
-            src={imageError ? "/placeholder.svg" : (project.thumbnail || "/placeholder.svg")}
+            src={imageError ? "/placeholder-1.webp" : (project.thumbnail || "/placeholder-1.webp")}
             className={`object-cover transition-all duration-300 group-hover:scale-105 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}

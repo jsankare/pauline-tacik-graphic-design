@@ -3,21 +3,21 @@ import clientPromise from "@/lib/mongodb";
 import FilteredProjects from "./components/FilteredProjects";
 
 export const metadata = {
-  title: "Designer graphique & illustratrice à Metz | Pauline Tacik",
+  title: "Graphiste et illustratrice à Metz, Nancy, Luxembourg | Pauline Tacik",
   description:
-    "Portfolio de Pauline Tacik, designer graphique et illustratrice à Metz. Identités visuelles, supports imprimés, gravure et illustration.",
+    "Graphisme, illustration et linogravure pour vos projets à Metz, Nancy et Luxembourg : identité visuelle, logo, affiche, édition et supports imprimés. Découvrez mon portfolio et commandez vos créations.",
   openGraph: {
-    title: "Designer graphique & illustratrice à Metz | Pauline Tacik",
+    title: "Graphiste et illustratrice à Metz, Nancy, Luxembourg | Pauline Tacik",
     description:
-      "Portfolio de Pauline Tacik, designer graphique et illustratrice à Metz. Identités visuelles, supports imprimés, gravure et illustration.",
+      "Portfolio et prestations de graphisme, identité visuelle, illustration et linogravure à Metz, Nancy et Luxembourg. Projets sur mesure pour entreprises et indépendants.",
     url: process.env.NEXT_PUBLIC_SITE_URL || undefined,
     images: [{ url: "/ptacik-logo.png" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Designer graphique & illustratrice à Metz | Pauline Tacik",
+    title: "Graphiste et illustratrice à Metz, Nancy, Luxembourg | Pauline Tacik",
     description:
-      "Portfolio de Pauline Tacik, designer graphique et illustratrice à Metz.",
+      "Identité visuelle, logo, affiche et illustration. Découvrez mon portfolio et mes services à Metz, Nancy et Luxembourg.",
     images: ["/ptacik-logo.png"],
   },
 };

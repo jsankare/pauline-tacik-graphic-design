@@ -32,7 +32,7 @@ const WorkshopCard = ({ workshop, href }) => {
           <Image
             fill
             alt={workshop.name}
-            src={imageError ? "/placeholder.svg" : (workshop.thumbnail || "/placeholder.svg")}
+            src={imageError ? "/placeholder-1.webp" : (workshop.thumbnail || "/placeholder-1.webp")}
             className={`object-cover transition-all duration-300 group-hover:scale-105 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}

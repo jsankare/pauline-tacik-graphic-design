@@ -3,17 +3,17 @@ import clientPromise from "@/lib/mongodb";
 import FilteredWorkshops from "../components/FilteredWorkshops";
 
 export const metadata = {
-  title: "Ateliers | Pauline Tacik",
-  description: "Découvrez les ateliers de gravure et d'illustration animés par Pauline Tacik, pour tous les publics.",
+  title: "Ateliers linogravure, gravure, dessin à Metz, Nancy, Luxembourg | Pauline Tacik",
+  description: "Ateliers de pratique artistique pour enfants, adultes et groupes : linogravure, gravure, dessin et peinture. Initiation et perfectionnement à Metz, Nancy et Luxembourg.",
   openGraph: {
-    title: "Ateliers | Pauline Tacik",
-    description: "Ateliers de gravure et d'illustration pour tous les publics.",
+    title: "Ateliers de linogravure, gravure et dessin | Pauline Tacik",
+    description: "Stages et ateliers tous niveaux pour découvrir la linogravure, la gravure, le dessin et la peinture. À Metz, Nancy et Luxembourg.",
     images: [{ url: "/ptacik-logo.png" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ateliers | Pauline Tacik",
-    description: "Ateliers de gravure et d'illustration pour tous les publics.",
+    title: "Ateliers de gravure et illustration | Metz, Nancy, Luxembourg",
+    description: "Ateliers créatifs pour enfants, adultes et groupes : linogravure, gravure, dessin, peinture.",
     images: ["/ptacik-logo.png"],
   },
 };
