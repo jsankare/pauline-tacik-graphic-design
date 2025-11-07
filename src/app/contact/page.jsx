@@ -37,9 +37,7 @@ const ContactPage = () => {
         e.preventDefault();
         setLoading(true);
 
-        alert("Fonctionnalité en cours de développement, merci de revenir plus tard !");
-        setLoading(false);
-        return;
+
 
         try {
             await emailjs.send(serviceID, templateID, {
