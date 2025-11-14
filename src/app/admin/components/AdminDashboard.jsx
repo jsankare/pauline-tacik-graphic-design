@@ -143,7 +143,7 @@ const AdminDashboard = () => {
                 <section className="flex flex-col gap-5">
                     <p>Si jamais la suppression des images ne fonctionne pas d'ici, aller sur
                         <a
-                            href="https://console.cloudinary.com/app/c-1c5a15ca291dfb25e028fa03e92886/assets/media_library/search?q=&view_mode=mosaic"
+                            href="https://console.cloudinary.com/app/c-f9c0bed3e1b83a5c53e5fa5049d3c3/assets/media_library/search?q=&view_mode=mosaic"
                             target="blank"
                             className="text-secondary inline mx-1 underline"
                         >
